@@ -17,11 +17,18 @@ repositori.
 |---|---|
 | NB 1.1 — Presa de contacte amb les dades | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT01-Entorn_de_treball_primer_model/aemet/NB_1_1_presa_de_contacte.ipynb) |
 | NB 1.2 — El teu primer model, de principi a fi | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT01-Entorn_de_treball_primer_model/aemet/NB_1_2_primer_model.ipynb) |
+| NB 1.1 — Presa de contacte *(versió pingüins)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT01-Entorn_de_treball_primer_model/penguins/NB_1_1_presa_de_contacte_PINGUINS.ipynb) |
+| NB 1.2 — El teu primer model *(versió pingüins)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT01-Entorn_de_treball_primer_model/penguins/NB_1_2_primer_model_PINGUINS.ipynb) |
 
 Cada cel·la de codi va acompanyada de la seva explicació: els notebooks fan de
 guió de classe, no només d'exercici.
 
 ## Les dades
+
+Hi ha una segona versió dels notebooks de la UT1 amb els **pingüins de
+l'arxipèlag Palmer** (344 mesures de camp), pensada per a una primera sessió on
+les dades es puguin mirar senceres. El detall és a
+[docs/DATASETS.md](docs/DATASETS.md).
 
 El conjunt principal del curs són **mesures meteorològiques diàries de l'estació
 B278 (aeroport de Palma)**, publicades per l'AEMET: 4.017 dies, del gener de 2015
@@ -40,7 +47,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 
 | UT | Títol | Aval | Hores | Estat |
 |---|---|---|---|---|
-| 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 8 | NB 1.1 i 1.2 escrits |
+| 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 8 | NB 1.1 i 1.2, amb AEMET i amb pingüins |
 | 2 | Regressió lineal i polinòmica | 1a | 18 | pendent |
 | 3 | Correlacions i preparació de variables | 1a | 12 | pendent |
 | 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |

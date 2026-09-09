@@ -58,6 +58,60 @@ criteris avaluables (RA1.b). El directori d'empreses és exactament el contrari:
 tot categòric. Es complementen. A més serveix per al clustering de la **UT7**,
 on agrupar municipis o sectors dona grups que l'alumnat pot interpretar.
 
+### Alternativa per a la UT1 — Palmer Penguins
+
+`UT01-Entorn_de_treball_primer_model/penguins/penguins.csv`
+
+Mesures de camp de **344 pingüins** de tres illes de l'arxipèlag Palmer
+(Antàrtida), preses entre 2007 i 2009 per la Palmer Station LTER. Dades de
+Gorman, Williams i Fraser (2014), distribuïdes al paquet
+[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) amb llicència
+CC0. En tenim una còpia al repositori perquè els notebooks no depenguin d'un
+projecte extern el dia de classe.
+
+8 columnes: `species`, `island`, `bill_length_mm`, `bill_depth_mm`,
+`flipper_length_mm`, `body_mass_g`, `sex`, `year`.
+
+**Què aporta que AEMET no té:**
+
+- **Cap a la pantalla.** 344 files es poden projectar senceres. Per a una unitat
+  el lema de la qual és mirar les dades abans de tocar-les, això no és una
+  limitació sinó el motiu.
+- **Valors absents que es poden comptar amb el dit.** Onze files: dos pingüins
+  sense cap mesura i nou als quals no consta el sexe. Es veuen d'un cop amb
+  `df[df.isna().any(axis=1)]`.
+- **Tres columnes categòriques** (espècie, illa, sexe), que és justament el que
+  falta a AEMET, i que deixen sembrat el one-hot de la UT3.
+- **La lliçó contrària a la d'AEMET.** L'arbre encerta el 94% contra un
+  `DummyClassifier` del 51%: aquí el model sí que guanya la referència. Amb AEMET
+  passa el revés. Posar les dues coses seguides és el que fixa la idea que la
+  referència és una comparació, no un veredicte.
+- **La paradoxa de Simpson servida.** La correlació entre llargada i gruix del
+  bec és **−0,235** al conjunt sencer i **positiva dins de cada espècie** (+0,39
+  Adelie, +0,65 Chinstrap, +0,64 Gentoo). Material directe per a la UT3.
+
+**Dues advertències, totes dues aprofitables com a material:**
+
+1. **El fitxer està ordenat per espècie** (primer tots els Adelie, després els
+   Gentoo, després els Chinstrap). `train_test_split` barreja per defecte i els
+   notebooks de la UT1 són segurs, però una validació creuada sense `shuffle=True`
+   dona resultats absurds: R2 de **−0,818** en comptes de 0,744, i accuracy de
+   0,730 en comptes de 0,959. És un accident real i molt bo per a la UT10.
+2. **Amb 344 files, la mesura balla.** Sobre 200 particions distintes, el R2 de
+   la regressió va de 0,579 a 0,846 (desviació 0,043); amb AEMET, de 0,877 a
+   0,911 (desviació 0,007). La corba d'aprenentatge, però, s'aplana a partir de
+   120 mostres: **el model no necessita més dades, la mesura sí**. És l'argument
+   de la validació creuada de la UT10, i el NB 1.2 ja el deixa plantat.
+
+**Descartada la versió "extended" de Kaggle.** Circula una ampliació a ~3.400
+files amb columnes de dieta, etapa vital i estat de salut. És **artificial**: la
+generà un notebook, els anys són 2021-2025 (l'estudi real és de 2007-2009) i les
+mesures no respecten la biologia — hi ha Adelie de 6.800 g amb aletes de 270 mm
+quan els reals no passen de 4.775 g ni de 210 mm. A més, `health_metrics` es
+calcula a partir de la massa, l'etapa i l'espècie, o sigui el mateix problema de
+columna derivada que els creuers. Serviria, com a molt, com a exercici de
+detecció de dades falses.
+
 ### Cas trampa (UT10) — Despesa dels creuers (IBESTAT)
 
 CSV directe i sense clau, quatre anys disponibles.
