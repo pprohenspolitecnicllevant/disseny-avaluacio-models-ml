@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ca"><head><meta charset="utf-8"><title>Què vol dir que un model aprèn</title>
+<style>
+  @page { size: 13.333in 7.5in; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #17233D; }
+
+  .slide { width: 13.333in; height: 7.5in; padding: 0.72in 0.8in; position: relative;
+           page-break-after: always; overflow: hidden; background: #FFFFFF;
+           display: flex; flex-direction: column; }
+  .slide:last-child { page-break-after: auto; }
+  .dark { background: #0F1B33; color: #FFFFFF; }
+
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: 54px; line-height: 1.12;
+       font-weight: 400; letter-spacing: -0.4px; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 38px; line-height: 1.18;
+       font-weight: 400; margin-bottom: 26px; letter-spacing: -0.2px; }
+  .eyebrow { font-size: 14px; letter-spacing: 2.4px; text-transform: uppercase;
+             color: #1C7293; font-weight: 700; margin-bottom: 20px; }
+  .dark .eyebrow { color: #7FB3D5; }
+  p { font-size: 19px; line-height: 1.55; }
+  .lead { font-size: 22px; line-height: 1.5; }
+  .muted { color: #5C6B85; }
+  .dark .muted { color: #A8B8D0; }
+  b, strong { font-weight: 700; }
+  .amber { color: #C9700F; }
+  .dark .amber { color: #F2A24D; }
+
+  .grow { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .body { flex: 1; display: flex; flex-direction: column; justify-content: center;
+          padding-bottom: 0.25in; }
+  .foot { font-size: 15px; color: #7C8AA0; }
+  .num { position: absolute; right: 0.62in; bottom: 0.46in; font-size: 13px; color: #A8B4C6; }
+  .dark .num { color: #4E617F; }
+
+  .cards { display: flex; gap: 30px; }
+  .card { flex: 1; background: #F4F7FB; border-radius: 14px; padding: 30px 30px 32px; }
+  .card.hi { background: #EAF2F8; }
+  .card h3 { font-size: 21px; margin-bottom: 6px; font-weight: 700; }
+  .card .sub { font-size: 15px; color: #5C6B85; margin-bottom: 18px; }
+  .flow { font-family: "Courier New", monospace; font-size: 16px; font-weight: 700;
+          color: #1C7293; background: #FFFFFF; border-radius: 8px; padding: 12px 14px;
+          margin-bottom: 16px; }
+  .card p { font-size: 17px; line-height: 1.5; }
+
+  .formula { font-family: "Courier New", monospace; background: #0F1B33; color: #E8EFF8;
+             border-radius: 14px; padding: 30px 34px; font-size: 27px; line-height: 1.5;
+             letter-spacing: -0.3px; }
+  .formula .q { color: #F2A24D; font-weight: 700; }
+  .formula.small { font-size: 21px; }
+
+  table.vals { border-collapse: collapse; font-size: 20px; }
+  table.vals th { font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase;
+                  color: #7C8AA0; font-weight: 700; text-align: left; padding: 0 26px 10px 0; }
+  table.vals td { padding: 7px 26px 7px 0; border-top: 1px solid #E4EAF2; }
+  table.vals td.r { text-align: right; padding-right: 0; }
+  table.vals .mono { font-family: "Courier New", monospace; }
+  table.vals tr.best td { color: #C9700F; font-weight: 700; }
+
+  .steps { display: flex; gap: 22px; }
+  .step { flex: 1; background: #F4F7FB; border-radius: 14px; padding: 26px 26px 28px; }
+  .step .k { font-family: "Courier New", monospace; font-size: 22px; font-weight: 700;
+             color: #0F1B33; margin-bottom: 12px; }
+  .step p { font-size: 16px; line-height: 1.5; }
+
+  .two { display: flex; gap: 36px; align-items: flex-start; }
+  .two > div { flex: 1; }
+  .colhead { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .colwho { font-size: 15px; color: #5C6B85; margin-bottom: 16px; }
+  .chip { display: inline-block; font-family: "Courier New", monospace; font-size: 16px;
+          background: #EAF2F8; color: #16506B; border-radius: 6px;
+          padding: 5px 11px; margin: 0 7px 8px 0; }
+  .chip.h { background: #FBEEDD; color: #A65E0D; }
+
+  ol.keys { list-style: none; counter-reset: k; }
+  ol.keys li { counter-increment: k; font-size: 22px; line-height: 1.45;
+               padding-left: 54px; position: relative; margin-bottom: 24px; }
+  ol.keys li::before { content: counter(k); position: absolute; left: 0; top: -2px;
+    width: 36px; height: 36px; border-radius: 50%; background: #1C7293; color: #fff;
+    font-size: 17px; font-weight: 700; display: flex; align-items: center;
+    justify-content: center; font-family: "Helvetica Neue", Arial, sans-serif; }
+  .chartbox { background: #F7F9FC; border-radius: 14px; padding: 18px 22px 8px; }
+</style></head><body>
+
+<!-- 1 -->
+<section class="slide dark">
+  <div class="grow">
+    <div class="eyebrow">MP 5134 &middot; UT1</div>
+    <h1>Què vol dir que un model<br><span class="amber">aprèn</span>?</h1>
+    <p class="lead muted" style="margin-top:26px; max-width:8.4in">
+      Una introducció curta abans de tocar codi: què és l'aprenentatge automàtic,
+      què és un model i què passa exactament quan l'entrenem.</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="eyebrow">1 &middot; El canvi de plantejament</div>
+  <h2>Dues maneres de resoldre el mateix problema</h2>
+  <div class="body">
+  <div class="cards">
+    <div class="card">
+      <h3>Programació clàssica</h3>
+      <div class="sub">Les regles les escrius tu</div>
+      <div class="flow">DADES + REGLES &rarr; RESPOSTES</div>
+      <p>Per endevinar el pes d'un pingüí hauries d'escriure tu les condicions:
+         <i>si l'aleta fa més de 215 mm, llavors...</i></p>
+    </div>
+    <div class="card hi">
+      <h3>Aprenentatge automàtic</h3>
+      <div class="sub">Les regles les dedueix l'algorisme</div>
+      <div class="flow">DADES + RESPOSTES &rarr; REGLES</div>
+      <p>Li dones 342 pingüins ja mesurats i pesats, i el deixes trobar el
+         patró tot sol.</p>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:30px">
+    D'aquí surt la conseqüència que marcarà tot el curs:
+    <b>el model només serà tan bo com les dades que li donem</b>.</p>
+  </div>
+  <div class="num">2</div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="eyebrow">2 &middot; Què és un model</div>
+  <h2>Una fórmula amb incògnites</h2>
+  <div class="body">
+  <div class="formula">massa = <span class="q">?</span> &times; aleta + <span class="q">?</span></div>
+  <p class="lead" style="margin-top:32px; max-width:9.6in">
+    Un model acabat de crear <b>no sap res</b>. Té la forma &mdash; sap que la massa
+    dependrà de l'aleta &mdash; però no sap amb quins números.</p>
+  <p class="muted" style="margin-top:18px; max-width:9.6in">
+    Aquestes incògnites són els <b>paràmetres</b> del model. També els trobaràs
+    anomenats coeficients o pesos: són la mateixa cosa.</p>
+  </div>
+  <div class="num">3</div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="eyebrow">3 &middot; Què vol dir entrenar</div>
+  <h2>Provar valors i quedar-se amb el millor</h2>
+  <div class="body">
+  <div class="two">
+    <div style="flex:0 0 4.2in">
+      <table class="vals">
+        <tr><th>Si el coeficient val&hellip;</th><th style="text-align:right;padding-right:0">error mitjà (g)</th></tr>
+        <tr class=""><td class="mono">10</td><td class="mono r">575</td></tr><tr class=""><td class="mono">20</td><td class="mono r">478</td></tr><tr class=""><td class="mono">30</td><td class="mono r">394</td></tr><tr class=""><td class="mono">40</td><td class="mono r">337</td></tr><tr class="best"><td class="mono">50</td><td class="mono r">312</td></tr><tr class=""><td class="mono">60</td><td class="mono r">335</td></tr>
+      </table>
+    </div>
+    <div>
+      <p class="lead">Per a cada valor possible del coeficient podem mesurar
+        <b>quant s'equivoca</b> el model sobre els 342 pingüins.</p>
+      <p style="margin-top:20px">Aprendre és exactament això: <b>cercar els valors dels
+        paràmetres que donen el millor rendiment</b>. Aquí, els que fan l'error més petit.</p>
+      <p class="muted" style="margin-top:20px">En aquest exemple només movem un
+        coeficient. Amb tres, la cerca és la mateixa idea buscant tres valors
+        alhora.</p>
+    </div>
+  </div>
+  </div>
+  <div class="num">4</div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="eyebrow">3 &middot; Què vol dir entrenar</div>
+  <h2>L'error dibuixa una vall</h2>
+  <div class="body">
+  <div class="chartbox"><svg viewBox="0 0 820 268" width="100%" role="img"><line x1="62" y1="182.8" x2="800" y2="182.8" stroke="#DDE4EE" stroke-width="1"/><text x="50" y="186.8" text-anchor="end" font-size="13" fill="#7C8AA0">300</text><line x1="62" y1="141.6" x2="800" y2="141.6" stroke="#DDE4EE" stroke-width="1"/><text x="50" y="145.6" text-anchor="end" font-size="13" fill="#7C8AA0">400</text><line x1="62" y1="100.4" x2="800" y2="100.4" stroke="#DDE4EE" stroke-width="1"/><text x="50" y="104.4" text-anchor="end" font-size="13" fill="#7C8AA0">500</text><line x1="62" y1="59.2" x2="800" y2="59.2" stroke="#DDE4EE" stroke-width="1"/><text x="50" y="63.2" text-anchor="end" font-size="13" fill="#7C8AA0">600</text><line x1="62" y1="18.0" x2="800" y2="18.0" stroke="#DDE4EE" stroke-width="1"/><text x="50" y="22.0" text-anchor="end" font-size="13" fill="#7C8AA0">700</text><line x1="62" y1="224.0" x2="800" y2="224.0" stroke="#B9C4D4" stroke-width="1.5"/><text x="62.0" y="246.0" text-anchor="middle" font-size="13" fill="#7C8AA0">0</text><text x="209.6" y="246.0" text-anchor="middle" font-size="13" fill="#7C8AA0">20</text><text x="357.2" y="246.0" text-anchor="middle" font-size="13" fill="#7C8AA0">40</text><text x="504.8" y="246.0" text-anchor="middle" font-size="13" fill="#7C8AA0">60</text><text x="652.4" y="246.0" text-anchor="middle" font-size="13" fill="#7C8AA0">80</text><text x="800.0" y="246.0" text-anchor="middle" font-size="13" fill="#7C8AA0">100</text><polyline points="62.0,26.2 98.9,48.1 135.8,69.5 172.7,90.1 209.6,109.5 246.5,127.6 283.4,144.1 320.3,157.3 357.2,167.6 394.1,175.0 431.0,177.9 467.9,175.4 504.8,168.4 541.7,157.7 578.6,144.1 615.5,128.4 652.4,111.5 689.3,93.0 726.2,73.6 763.1,53.4 800.0,32.0" fill="none" stroke="#1C7293" stroke-width="3.5" stroke-linejoin="round"/><line x1="431.0" y1="177.9" x2="431.0" y2="224.0" stroke="#E8871E" stroke-width="2" stroke-dasharray="5 4"/><circle cx="431.0" cy="177.9" r="8" fill="#E8871E"/><text x="449.0" y="203.9" font-size="15" font-weight="700" fill="#E8871E">50,2 &#8594; error de 312 g</text><text x="16" y="26" font-size="12" fill="#7C8AA0" transform="rotate(-90 16 26)" text-anchor="end">error mitjà (g)</text><text x="431" y="264" text-anchor="middle" font-size="12" fill="#7C8AA0">valor provat per al coeficient de l'aleta</text></svg></div>
+  <p class="muted" style="margin-top:22px; max-width:10.4in">
+    El fons de la vall el troba el model, no nosaltres. Cap algorisme prova els valors
+    un per un com aquí &mdash; n'hi ha de molt més ràpids per baixar fins al fons &mdash;
+    però la idea és aquesta.</p>
+  </div>
+  <div class="num">5</div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="eyebrow">4 &middot; El resultat</div>
+  <h2>Quatre números, i prou</h2>
+  <div class="body">
+  <div class="formula small">massa = <span class="q">-6233,3</span>
+    + <span class="q">2,46</span> &times; llarg_bec
+    + <span class="q">13,15</span> &times; gruix_bec
+    + <span class="q">50,26</span> &times; llarg_aleta</div>
+  <p class="lead" style="margin-top:30px; max-width:10.2in">
+    Això és <b>tot</b> el que hi ha dins d'un model lineal entrenat. Entrenar ha
+    consistit a trobar aquests quatre números.</p>
+  <p class="muted" style="margin-top:16px; max-width:10.2in">
+    Amb una calculadora i les mesures d'un pingüí obtindries exactament el mateix
+    que et dóna <span class="chip" style="margin:0">predict()</span></p>
+  </div>
+  <div class="num">6</div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="eyebrow">5 &middot; Com es fa, a la pràctica</div>
+  <h2>Sempre els mateixos tres passos</h2>
+  <div class="body">
+  <div class="steps">
+    <div class="step"><div class="k">fit(X, y)</div>
+      <p>Cerca els paràmetres a partir dels exemples. És l'únic moment en què el
+         model aprèn alguna cosa.</p></div>
+    <div class="step"><div class="k">predict(X)</div>
+      <p>Aplica la fórmula trobada a mostres noves. Aquí ja no aprèn: només
+         calcula.</p></div>
+    <div class="step"><div class="k">score(X, y)</div>
+      <p>Mesura com de bé ho ha fet, sobre dades que no ha vist mai durant
+         l'entrenament.</p></div>
+  </div>
+  <p class="muted" style="margin-top:34px; max-width:10.4in">
+    Canvia el model &mdash; una regressió, un arbre, una xarxa neuronal &mdash; i
+    aquestes tres crides segueixen sent idèntiques. El que canvia és què s'amaga
+    a dins de <b>fit()</b>.</p>
+  </div>
+  <div class="num">7</div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="eyebrow">6 &middot; Dues coses que no s'han de confondre</div>
+  <h2>Paràmetres i hiperparàmetres</h2>
+  <div class="body">
+  <div class="two">
+    <div>
+      <div class="colhead">Paràmetres</div>
+      <div class="colwho">Els troba el model, dins de <b>fit()</b></div>
+      <span class="chip">coef_</span><span class="chip">intercept_</span>
+      <p style="margin-top:14px">Són el resultat de l'entrenament. A scikit-learn
+        acaben amb guió baix, i aquesta és la manera de reconèixer-los.</p>
+    </div>
+    <div>
+      <div class="colhead">Hiperparàmetres</div>
+      <div class="colwho">Els tries tu, <b>abans</b> d'entrenar</div>
+      <span class="chip h">max_depth=4</span><span class="chip h">test_size=0.2</span>
+      <p style="margin-top:14px">El model no els toca mai. Triar-los bé és un
+        problema per si sol, i té una unitat sencera dedicada: la UT10.</p>
+    </div>
+  </div>
+  </div>
+  <div class="num">8</div>
+</section>
+
+<!-- 9 -->
+<section class="slide dark">
+  <div class="eyebrow">Per endur-se'n</div>
+  <h2 style="color:#fff">Tres idees</h2>
+  <ol class="keys">
+    <li>Un model és una <b>fórmula amb números per determinar</b>.</li>
+    <li>Que un model <b>aprengui</b> vol dir que <b class="amber">cerca els valors
+        d'aquests números que li donen el millor rendiment</b>.</li>
+    <li>Un resultat tot sol no vol dir res <b>fins que el compares amb una
+        referència</b>.</li>
+  </ol>
+  <p class="muted" style="margin-top:8px">La resta del que farem aquest curs és
+    triar millors fórmules, millors dades i millors maneres de mesurar.</p>
+  <div class="num">9</div>
+</section>
+
+</body></html>
