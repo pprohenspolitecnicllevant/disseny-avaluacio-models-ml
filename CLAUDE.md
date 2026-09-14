@@ -8,7 +8,7 @@ Politècnic Llevant, curs 2026-27).
 Abans de tocar res, llegeix:
 
 - **[docs/PLANIFICACIO.md](docs/PLANIFICACIO.md)** — programació didàctica:
-  220 h, 12 UT, resultats d'aprenentatge, criteris d'avaluació de cada unitat i
+  220 h, 11 UT, resultats d'aprenentatge, criteris d'avaluació de cada unitat i
   quins notebooks li toquen. És el bolcat del full de càlcul oficial del centre.
 - **[docs/CONVENCIONS.md](docs/CONVENCIONS.md)** — com s'escriu el material:
   enfocament pràctic (no matemàtic), català, Colab, estructura de cada notebook.
