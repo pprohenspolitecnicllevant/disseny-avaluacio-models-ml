@@ -40,7 +40,7 @@ Conseqüències pràctiques:
 - **Cada cel·la de codi va acompanyada d'una cel·la de text que l'explica.** La
   càrrega de markdown és alta a propòsit.
 - **Referències creuades explícites a altres UT** («hi tornarem a la UT3»,
-  «això és exactament la UT10»), per donar continuïtat al curs i perquè
+  «això és exactament la UT7»), per donar continuïtat al curs i perquè
   l'alumnat sàpiga que un fil obert es tancarà.
 - Els conceptes s'introdueixen **al punt on fan falta**, no en un bloc de
   vocabulari inicial.

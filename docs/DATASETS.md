@@ -10,7 +10,7 @@ n'obté un ajust perfecte que no significa res.
 
 ## Els triats
 
-### Principal (UT1-UT10) — AEMET, estació B278 (aeroport de Palma)
+### Principal (UT1-UT9) — AEMET, estació B278 (aeroport de Palma)
 
 `UT01-Entorn_de_treball_primer_model/aemet/meteo_palma.csv`
 
@@ -47,7 +47,7 @@ exercici buit — estan lligades gairebé per definició — i qualsevol model
 encertaria sempre. Amb l'objectiu desplaçat un dia hi ha senyal, però no és
 perfecta: exactament el que cal per poder comparar algorismes.
 
-### Secundari (UT3 i UT7) — Directori d'empreses amb activitat econòmica (IBESTAT)
+### Secundari (UT3 i UT8) — Directori d'empreses amb activitat econòmica (IBESTAT)
 
 Desenes de milers de registres reals amb sector CNAE, municipi, tram
 d'assalariats i forma jurídica.
@@ -55,7 +55,7 @@ d'assalariats i forma jurídica.
 **Per què.** El fitxer meteorològic és gairebé tot numèric, i això deixa la
 **UT3 coixa en codificació de variables categòriques i one-hot**, que són
 criteris avaluables (RA1.b). El directori d'empreses és exactament el contrari:
-tot categòric. Es complementen. A més serveix per al clustering de la **UT7**,
+tot categòric. Es complementen. A més serveix per al clustering de la **UT8**,
 on agrupar municipis o sectors dona grups que l'alumnat pot interpretar.
 
 ### Alternativa per a la UT1 — Palmer Penguins
@@ -96,12 +96,12 @@ projecte extern el dia de classe.
    Gentoo, després els Chinstrap). `train_test_split` barreja per defecte i els
    notebooks de la UT1 són segurs, però una validació creuada sense `shuffle=True`
    dona resultats absurds: R2 de **−0,818** en comptes de 0,744, i accuracy de
-   0,730 en comptes de 0,959. És un accident real i molt bo per a la UT10.
+   0,730 en comptes de 0,959. És un accident real i molt bo per a la UT7.
 2. **Amb 344 files, la mesura balla.** Sobre 200 particions distintes, el R2 de
    la regressió va de 0,579 a 0,846 (desviació 0,043); amb AEMET, de 0,877 a
    0,911 (desviació 0,007). La corba d'aprenentatge, però, s'aplana a partir de
    120 mostres: **el model no necessita més dades, la mesura sí**. És l'argument
-   de la validació creuada de la UT10, i el NB 1.2 ja el deixa plantat.
+   de la validació creuada de la UT7, i el NB 1.2 ja el deixa plantat.
 
 **Descartada la versió "extended" de Kaggle.** Circula una ampliació a ~3.400
 files amb columnes de dieta, etapa vital i estat de salut. És **artificial**: la
@@ -112,7 +112,7 @@ calcula a partir de la massa, l'etapa i l'espècie, o sigui el mateix problema d
 columna derivada que els creuers. Serviria, com a molt, com a exercici de
 detecció de dades falses.
 
-### Cas trampa (UT10) — Despesa dels creuers (IBESTAT)
+### Cas trampa (UT7) — Despesa dels creuers (IBESTAT)
 
 CSV directe i sense clau, quatre anys disponibles.
 
@@ -127,7 +127,7 @@ S'entrega **sense avisar** i l'alumnat ha de descobrir per què el resultat és
 massa bo per ser cert. És el millor exemple real de fuga d'informació que hem
 trobat, i a sobre és local.
 
-### UT11 — Elecció lliure
+### UT10 — Elecció lliure
 
 Cada parella tria el seu conjunt del catàleg d'IBESTAT o de datos.gob.es. Aquí
 el rigor el posa el projecte.

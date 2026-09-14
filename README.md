@@ -47,21 +47,20 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 
 | UT | Títol | Aval | Hores | Estat |
 |---|---|---|---|---|
-| 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 8 | NB 1.1 i 1.2, amb AEMET i amb pingüins |
+| 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET i amb pingüins |
 | 2 | Regressió lineal i polinòmica | 1a | 18 | pendent |
-| 3 | Correlacions i preparació de variables | 1a | 12 | pendent |
+| 3 | Correlacions i preparació de variables | 1a | 15 | pendent |
 | 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |
 | 6 | Màquines de suport vectorial (SVM) | 1a | 12 | pendent |
-| 7 | Aprenentatge no supervisat: k-means i mixtures gaussianes | 2a | 15 | pendent |
-| 8 | Reducció de la dimensió i representació gràfica | 2a | 12 | pendent |
-| 9 | Primer contacte amb xarxes neuronals (MLP) | 2a | 15 | pendent |
-| 10 | Validació creuada, ajust d'hiperparàmetres i robustesa | 2a | 15 | pendent |
-| 11 | Projecte integrador i informe d'avaluació | 2a | 22 | pendent |
-| 12 | FEMPO | 3a | 55 | pendent |
+| 7 | Validació creuada, ajust d'hiperparàmetres i robustesa | 2a | 18 | pendent |
+| 8 | Aprenentatge no supervisat: k-means i mixtures gaussianes | 2a | 15 | pendent |
+| 9 | Reducció de la dimensió i representació gràfica | 2a | 15 | pendent |
+| 10 | Projecte integrador i informe d'avaluació | 2a | 27 | pendent |
+| 11 | FEMPO | 3a | 55 | pendent |
 
 A la UT2 s'aparta el **20% de les dades com a test segellat**, que no s'obre fins
-a la UT11. És el fil que cus el curs sencer.
+a la UT10. És el fil que cus el curs sencer.
 
 ## Organització del repositori
 
