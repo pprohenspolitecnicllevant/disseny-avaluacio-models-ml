@@ -4,7 +4,7 @@ Material docent del mòdul professional **5134** del cicle d'especialització
 **IAD41 — Aprenentatge automàtic, gestió de dades i entrenament**
 (Politècnic Llevant, curs 2026-27).
 
-El mòdul són **220 hores** repartides en 12 unitats de treball. L'enfocament és
+El mòdul són **220 hores** repartides en 11 unitats de treball. L'enfocament és
 **pràctic**: construir models i avaluar-los, no derivar fórmules.
 
 ## Com fer servir els notebooks
@@ -19,6 +19,9 @@ repositori.
 | NB 1.2 — El teu primer model, de principi a fi | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT01-Entorn_de_treball_primer_model/aemet/NB_1_2_primer_model.ipynb) |
 | NB 1.1 — Presa de contacte *(versió pingüins)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT01-Entorn_de_treball_primer_model/penguins/NB_1_1_presa_de_contacte_PINGUINS.ipynb) |
 | NB 1.2 — El teu primer model *(versió pingüins)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT01-Entorn_de_treball_primer_model/penguins/NB_1_2_primer_model_PINGUINS.ipynb) |
+| NB 2.1 — Regressió lineal simple *(pingüins)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/NB_2_1_regressio_lineal_simple.ipynb) |
+| NB 2.2 — Regressió lineal múltiple i test segellat *(AEMET)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/NB_2_2_regressio_multiple.ipynb) |
+| NB 2.3 — Regressió polinòmica i sobreajust *(AEMET)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/NB_2_3_regressio_polinomica.ipynb) |
 
 Cada cel·la de codi va acompanyada de la seva explicació: els notebooks fan de
 guió de classe, no només d'exercici.
@@ -48,7 +51,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 | UT | Títol | Aval | Hores | Estat |
 |---|---|---|---|---|
 | 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET i amb pingüins |
-| 2 | Regressió lineal i polinòmica | 1a | 18 | pendent |
+| 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3, amb solucionaris |
 | 3 | Correlacions i preparació de variables | 1a | 15 | pendent |
 | 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |
@@ -59,8 +62,8 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 | 10 | Projecte integrador i informe d'avaluació | 2a | 27 | pendent |
 | 11 | FEMPO | 3a | 55 | pendent |
 
-A la UT2 s'aparta el **20% de les dades com a test segellat**, que no s'obre fins
-a la UT10. És el fil que cus el curs sencer.
+A la UT2 s'aparten els **dos últims anys de dades (2024 i 2025, un 18%) com a test
+segellat**, que no s'obre fins a la UT10. És el fil que cus el curs sencer.
 
 ## Organització del repositori
 

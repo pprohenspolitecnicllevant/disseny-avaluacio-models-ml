@@ -115,7 +115,8 @@ Lectives (UT1-UT10): 165 h. FEMPO: 55 h.
 
 ## 6. Fils que travessen tot el mòdul
 
-- **El test segellat.** A la **UT2** s'aparta el 20% de les dades com a test i no
+- **El test segellat.** A la **UT2** (NB 2.2) s'aparten els anys 2024 i 2025 de les
+  dades d'AEMET (un 18%) com a test i no
   s'obre fins a la **UT10**, en classe, comparant l'estimació de validació amb el
   resultat real.
 - **La fuga d'informació.** Se sembra a la UT1 (per què predim demà i no avui),
