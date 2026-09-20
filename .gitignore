@@ -1,3 +1,7 @@
 .DS_Store
 .ipynb_checkpoints/
 __pycache__/
+
+# Els solucionaris viuen al repositori privat bessó, mai aquí
+*_solucions*.ipynb
+*solucionari*

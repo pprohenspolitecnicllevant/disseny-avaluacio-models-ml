@@ -25,6 +25,11 @@ Abans de tocar res, llegeix:
   guió de classe, així que la càrrega de markdown és alta a propòsit.
 - Si canvies la planificació, **actualitza també el full de càlcul** — la font de
   veritat administrativa és aquell, i `docs/PLANIFICACIO.md` n'és el reflex.
+- **Aquest repositori és públic i l'alumnat el llegeix.** Els exercicis hi van amb
+  l'enunciat, però **cap solució**: els solucionaris s'escriuen al repositori
+  privat bessó (`../disseny-avaluacio-models-ml-solucions`) i arriben a l'alumnat
+  per Google Classroom després del termini d'entrega. El `.gitignore` bloqueja
+  `*_solucions*.ipynb` com a xarxa de seguretat.
 
 ## Estructura
 

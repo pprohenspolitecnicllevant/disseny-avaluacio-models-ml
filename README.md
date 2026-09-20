@@ -26,6 +26,10 @@ repositori.
 Cada cel·la de codi va acompanyada de la seva explicació: els notebooks fan de
 guió de classe, no només d'exercici.
 
+Els **exercicis van amb l'enunciat dins el notebook**. Els solucionaris no es
+publiquen aquí: es pengen a **Google Classroom** un cop tancat el termini
+d'entrega de cada activitat.
+
 ## Les dades
 
 Hi ha una segona versió dels notebooks de la UT1 amb els **pingüins de
@@ -51,7 +55,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 | UT | Títol | Aval | Hores | Estat |
 |---|---|---|---|---|
 | 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET i amb pingüins |
-| 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3, amb solucionaris |
+| 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3 |
 | 3 | Correlacions i preparació de variables | 1a | 15 | pendent |
 | 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |
@@ -70,10 +74,13 @@ segellat**, que no s'obre fins a la UT10. És el fil que cus el curs sencer.
 ```
 UTnn-Nom_de_la_unitat/
   <dataset>/
-    NB_u_n_titol.ipynb     els notebooks de la unitat
+    NB_u_n_titol.ipynb     els notebooks de la unitat, amb els enunciats
     dades.csv              les dades que carreguen
 docs/                      planificació, convencions i datasets
 ```
+
+Els solucionaris viuen en un repositori privat a part i arriben a l'alumnat per
+Google Classroom.
 
 ## Documentació
 
