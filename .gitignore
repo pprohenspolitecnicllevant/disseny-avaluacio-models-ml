@@ -2,6 +2,9 @@
 .ipynb_checkpoints/
 __pycache__/
 
+# Configuració dels editors de JetBrains (PyCharm, DataSpell...)
+.idea/
+
 # Els solucionaris viuen al repositori privat bessó, mai aquí
 *_solucions*.ipynb
 *solucionari*
