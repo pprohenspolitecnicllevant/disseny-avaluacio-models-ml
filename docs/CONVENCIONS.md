@@ -50,8 +50,13 @@ Conseqüències pràctiques:
 1. Capçalera: codi i nom del notebook, mòdul, UT.
 2. **Què farem avui** i, si escau, les preguntes que s'han de saber respondre en
    acabar.
-3. Desenvolupament: codi + explicació, alternats.
-4. **Exercicis.**
+3. Desenvolupament: codi + explicació, alternats, amb **pauses «Ara tu»**
+   intercalades (unes tres per notebook). Cada pausa és un exercici curt, lligat
+   a la secció que s'acaba d'explicar, perquè l'alumnat no passi una sessió
+   sencera escoltant abans de posar-hi les mans. Van numerades com a exercicis i
+   formen part de l'entrega.
+4. **Exercicis finals**, els que demanen el notebook sencer. La numeració
+   continua la de les pauses.
 5. **Per al debat de classe**, quan la unitat s'hi presta.
 
 ## 5. Nomenclatura
