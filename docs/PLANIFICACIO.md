@@ -8,6 +8,8 @@
 > Totes les UT lectives tenen hores múltiples de 3 (sessions de 3 h).
 > Actualitzat el 2026-09-14: competències avaluables per bloc, avaluació,
 > metodologia i fitxes completes de les UT1-UT11.
+> Actualitzat el 2026-09-30: la UT1 es fa amb pingüins, així que el primer contacte
+> amb AEMET (i amb la fuga d'informació) passa al NB 2.2; el test segellat és un 18%.
 
 ## 1. Dades del mòdul
 
@@ -119,7 +121,7 @@ Lectives (UT1-UT10): 165 h. FEMPO: 55 h.
   dades d'AEMET (un 18%) com a test i no
   s'obre fins a la **UT10**, en classe, comparant l'estimació de validació amb el
   resultat real.
-- **La fuga d'informació.** Se sembra a la UT1 (per què predim demà i no avui),
+- **La fuga d'informació.** Se sembra a la UT2 (NB 2.2: per què predim demà i no avui),
   té el seu cas trampa a la UT7 (validació creuada) i es formalitza a la UT9
   (ajustar transformacions només amb entrenament, `Pipeline`).
 - **La desconfiança de les mètriques.** El model de referència (`Dummy*`) apareix
@@ -257,7 +259,7 @@ complementàries i les observacions, tal com són al full.
 **Observacions**
 
 - Unitat introductòria: s'avalua dins la competència de regressió (amb la UT2).
-- Dades: AEMET (aeroport de Palma) o, com a alternativa, Palmer Penguins.
+- Dades: Palmer Penguins (AEMET, com a alternativa).
 - Transversals: CPe2.
 
 ---
@@ -278,7 +280,7 @@ complementàries i les observacions, tal com són al full.
 - **NB 2.1.** Regressió lineal sobre una variable, amb la recta dibuixada sobre el núvol de punts.
 - **NB 2.2.** Regressió múltiple: comparar l'ajust afegint variables d'una en una.
 - **NB 2.3.** Escombrada de graus polinòmics per veure el sobreajust amb els ulls.
-- Es reserva el 20% de les dades com a test segellat, que no s'obrirà fins a la UT10.
+- Es reserva el 18% de les dades (anys 2024 i 2025) com a test segellat, que no s'obrirà fins a la UT10.
 - Exercici: triar la mètrica adequada per a una predicció de vendes setmanals i justificar-la.
 
 **Criteris d'avaluació**
@@ -297,8 +299,8 @@ complementàries i les observacions, tal com són al full.
 
 **Observacions**
 
-- Aquí es reserva el 20% de test segellat, que no s'obre fins a la UT10.
-- Dades: AEMET (temperatura màxima de l'endemà).
+- Aquí es reserva el 18% (2024-2025) com a test segellat, que no s'obre fins a la UT10.
+- Dades: AEMET, primer contacte (predir l'endemà sembra la fuga d'informació).
 - Transversals: CPe1.
 
 ---
