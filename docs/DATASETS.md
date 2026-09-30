@@ -53,6 +53,12 @@ Al NB 2.2 s'aparten **els anys 2024 i 2025** (730 dies, un 18%) com a test
 segellat. No s'obren fins a la UT10. Tots els notebooks que fan servir AEMET a
 partir de la UT2 comencen filtrant `fecha < "2024-01-01"`.
 
+El NB 2.2 fa el tall i l'anuncia en quatre línies; **el perquè de fons s'explica
+al final del NB 2.3** (secció 8), un cop l'alumnat ha triat el grau del polinomi
+mirant la validació i pot entendre que cada decisió presa així fa la validació
+una mica optimista. Explicar-ho abans, al primer contacte amb les dades, era
+massa abstracte.
+
 Es talla **per dates i no a l'atzar** per dos motius: el model s'ha de fer servir
 per predir dies futurs, i dos dies seguits s'assemblen tant que una partició
 aleatòria posaria a l'entrenament el dia abans de cada dia de prova. Per
@@ -64,7 +70,10 @@ per validar**.
 - **NB 2.1 (regressió simple): pingüins**, llargada de l'aleta contra massa. Amb
   342 punts la recta es veu sobre el núvol i el pendent es llegeix en veu alta
   (uns 50 g per mm).
-- **NB 2.2 (regressió múltiple): AEMET**, `tmax_dema`. La primera variable fa
+- **NB 2.2 (regressió múltiple): AEMET**, `tmax_dema`. És el primer contacte de
+  l'alumnat amb AEMET (la UT1 es fa amb pingüins), així que el notebook presenta
+  el fitxer, les columnes i per què es prediu *demà* i no *avui* (primera
+  aparició de la fuga d'informació). La primera variable fa
   gairebé tota la feina (MAE de 5,8 °C amb la mitjana, 1,61 °C amb `tmax`) i les
   nou següents només baixen set centèsimes. La persistència (*demà igual que
   avui*, 1,64 °C) fa de referència exigent.
