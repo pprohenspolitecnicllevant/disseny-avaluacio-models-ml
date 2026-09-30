@@ -192,3 +192,19 @@ el rigor el posa el projecte.
 A `UT01-Entorn_de_treball_primer_model/california_housing/` hi ha una versió
 paral·lela dels notebooks de la UT1 amb el conjunt clàssic de California
 Housing (`ageron/handson-ml2`), com a alternativa al d'AEMET.
+
+A `UT02-Regressio_lineal_polinomica/california_housing/` hi ha també la versió
+California Housing del NB 2.2 i del NB 2.3. Diferències respecte a AEMET que
+convé tenir presents:
+
+- **Test segellat a l'atzar, no per dates.** No hi ha dates (és una fotografia
+  del cens de 1990), així que el segell és `train_test_split(df, test_size=0.2,
+  random_state=42)`. Aquest `random_state` és el pany: no es pot tocar mai. Els
+  207 buits de `total_bedrooms` cauen tots al test segellat, cosa que tornarà a
+  sortir a la UT10.
+- **Referència de sentit comú:** el preu mitjà de cada `ocean_proximity`, en lloc
+  de la persistència.
+- **El NB 2.3 no prediu el preu.** Amb una sola entrada, el preu és massa sorollós
+  per veure l'infraajust i el sobreajust (la latitud només baixa l'error d'un
+  11%). Es fa servir el percentatge de dormitoris a partir de les habitacions per
+  llar, una corba neta; la latitud contra el preu queda per a l'exercici 5.
