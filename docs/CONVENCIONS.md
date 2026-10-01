@@ -44,6 +44,10 @@ Conseqüències pràctiques:
   l'alumnat sàpiga que un fil obert es tancarà.
 - Els conceptes s'introdueixen **al punt on fan falta**, no en un bloc de
   vocabulari inicial.
+- **El símbol de dòlar s'escriu `\$` a les cel·les markdown** (`500.001 \$`).
+  Colab llegeix el text que queda entre dos `$` com una fórmula LaTeX i el pinta
+  en cursiva matemàtica, sense espais. Dins de codi inline i a les cel·les de
+  codi es deixa tal com és.
 
 ## 4. Estructura d'un notebook
 
