@@ -208,3 +208,63 @@ convé tenir presents:
   per veure l'infraajust i el sobreajust (la latitud només baixa l'error d'un
   11%). Es fa servir el percentatge de dormitoris a partir de les habitacions per
   llar, una corba neta; la latitud contra el preu queda per a l'exercici 5.
+
+## Demanda elèctrica de les Balears (versió alternativa del NB 2.3)
+
+`UT02-Regressio_lineal_polinomica/demanda_electrica/demanda_balears.csv`
+
+Demanda elèctrica diària del sistema balear (Mallorca-Menorca i
+Eivissa-Formentera), publicada per **Red Eléctrica** a l'API pública REData, que
+no demana clau. Cada dia s'ajunta amb la `tmed` de l'estació B278, la del fitxer
+AEMET. El genera `generar_demanda_balears.py`, a la mateixa carpeta, que consulta
+l'API i llegeix `meteo_palma.csv`.
+
+- **4.017 files**, del 2015-01-01 al 2025-12-30: exactament els dies del fitxer
+  AEMET. Per això el test segellat (2024-2025) i la partició 2015-2021 / 2022-2023
+  són els mateixos.
+- Columnes: `fecha`, `any`, `mes`, `dia_any`, `cap_de_setmana` (1 dissabte i
+  diumenge), `tmed` (°C) i `demanda` (GWh, de 9,6 a 27,5; uns 16 de mitjana).
+
+**Per què.** Per al NB 2.3 es buscava una relació on la recta fallés de debò, el
+polinomi l'arreglés i el sobreajust sortís amb qualsevol mostra. La demanda contra
+la temperatura dibuixa una **U**: les calefaccions a l'hivern i l'aire condicionat
+i els turistes a l'estiu. El consum mínim és entre 13 i 16 °C.
+
+| Model (demanda ~ `tmed`) | MAE validació | R2 validació |
+|---|---|---|
+| Consum mitjà | 3,02 GWh | — |
+| Recta | 2,11 GWh | 0,53 |
+| Grau 2 | 1,20 GWh | 0,84 |
+
+Amb 15 dies (`random_state=2`, cap dia per sota dels 10 °C) la vall de validació
+cau al grau 2 (1,54 GWh) i el grau 15 dóna més de 40.000 GWh d'error. Sobre 40
+mostres de 15 dies, el millor grau va del 2 al 6. El grau 12 es desboca sempre
+(com a mínim 13 GWh d'error) i el grau 8, gairebé sempre (31 GWh de mediana). La
+secció 8 torna a `tmax_dema` amb el fitxer AEMET; la corba de l'any s'hi tria amb
+una escombrada (grau 4, 1,458 °C).
+
+**Advertències, totes aprofitades al notebook:**
+
+- **El 2020** (confinament i estiu sense turistes) fa una franja de punts baixos.
+  Es manté a l'entrenament i surt al debat. És també el motiu que, als graus 2 i
+  4, la validació surti una mica millor que l'entrenament.
+- **La U només demana grau 2.** El grau 4 no millora la validació (1,18 GWh). Per
+  veure que una forma més complexa demana més grau hi ha l'exercici 5: la demanda
+  contra el dia de l'any necessita grau 6 (1,38 GWh).
+- **Calor i turistes van junts** a l'estiu i el model no els pot separar. Es
+  planteja al debat i enllaça amb la UT3.
+
+**Candidats provats i descartats** amb el mateix protocol (R2 de validació de la
+recta contra el millor polinomi, i sobreajust amb 15 mostres i 6 llavors):
+
+- **Resistència dels iots** (UCI, canal de Delft): el salt més espectacular
+  (0,59 → 0,99), però gairebé sense soroll i amb només 14 velocitats diferents. El
+  grau 8 amb 15 mostres encara dóna 0,97: no hi ha sobreajust per ensenyar. El
+  número de Froude, a més, és abstracte.
+- **Gapminder** (esperança de vida contra PIB): millora fins al grau 6, però la
+  forma és logarítmica i la pregunta *per què no `log(PIB)`?* és inevitable.
+- **Peixos de Laengelmavesi** (pes contra llargada): la recta ja dóna 0,89-0,90.
+- **Diamants** (preu contra quirats) i **Auto MPG**: el polinomi millora poc
+  (0,85 → 0,87 i 0,63 → 0,73).
+- **Bike Sharing** (Washington i Seül): massa soroll, i la tendència entre anys
+  trenca una validació per dates.

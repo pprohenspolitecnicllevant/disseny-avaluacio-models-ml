@@ -26,6 +26,7 @@ repositori.
 | NB 2.3 — Regressió polinòmica i sobreajust *(AEMET)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/NB_2_3_regressio_polinomica.ipynb) |
 | NB 2.2 — Regressió lineal múltiple i test segellat *(versió California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/california_housing/NB_2_2_regressio_multiple_HOUSING.ipynb) |
 | NB 2.3 — Regressió polinòmica i sobreajust *(versió California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/california_housing/NB_2_3_regressio_polinomica_HOUSING.ipynb) |
+| NB 2.3 — Regressió polinòmica i sobreajust *(versió demanda elèctrica)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/demanda_electrica/NB_2_3_regressio_polinomica_REE.ipynb) |
 
 Cada cel·la de codi va acompanyada de la seva explicació: els notebooks fan de
 guió de classe, no només d'exercici.
@@ -45,6 +46,10 @@ Els notebooks de la UT1 i el NB 2.2 i el NB 2.3 tenen també una versió amb
 **California Housing**, el conjunt clàssic de districtes censals de Califòrnia del
 llibre de Géron, per a qui prefereixi treballar la regressió amb preus d'habitatge.
 
+El NB 2.3 té una tercera versió amb la **demanda elèctrica diària de les Balears**
+(Red Eléctrica) contra la temperatura de Palma: una U que la recta no pot seguir,
+ideal per veure l'infraajust i el sobreajust.
+
 El conjunt principal del curs són **mesures meteorològiques diàries de l'estació
 B278 (aeroport de Palma)**, publicades per l'AEMET: 4.017 dies, del gener de 2015
 al desembre de 2025.
@@ -63,7 +68,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 | UT | Títol | Aval | Hores | Estat |
 |---|---|---|---|---|
 | 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET, amb pingüins i amb California Housing |
-| 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3; el 2.2 i el 2.3, també amb California Housing |
+| 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3; el 2.2 i el 2.3, també amb California Housing; el 2.3, també amb la demanda elèctrica |
 | 3 | Correlacions i preparació de variables | 1a | 15 | pendent |
 | 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |
