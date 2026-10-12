@@ -217,7 +217,9 @@ Demanda elèctrica diària del sistema balear (Mallorca-Menorca i
 Eivissa-Formentera), publicada per **Red Eléctrica** a l'API pública REData, que
 no demana clau. Cada dia s'ajunta amb la `tmed` de l'estació B278, la del fitxer
 AEMET. El genera `generar_demanda_balears.py`, a la mateixa carpeta, que consulta
-l'API i llegeix `meteo_palma.csv`.
+l'API i llegeix `meteo_palma.csv`. La carpeta també té les diapositives de la UT2
+en versió demanda elèctrica (`UT2_regressio_lineal_REE.html` i el seu PDF): són les
+del deck AEMET amb les diapositives 7 a 10 refetes amb aquestes dades.
 
 - **4.017 files**, del 2015-01-01 al 2025-12-30: exactament els dies del fitxer
   AEMET. Per això el test segellat (2024-2025) i la partició 2015-2021 / 2022-2023
