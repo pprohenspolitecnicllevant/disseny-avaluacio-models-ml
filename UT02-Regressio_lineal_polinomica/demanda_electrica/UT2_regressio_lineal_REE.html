@@ -117,7 +117,7 @@
 <!-- 1 -->
 <section class="slide dark">
   <div class="grow">
-    <div class="eyebrow">MP 5134 &middot; UT2 &middot; Versió demanda elèctrica</div>
+    <div class="eyebrow">MP 5134 &middot; UT2 &middot; Versió California Housing i demanda elèctrica</div>
     <h1>Regressió lineal<br>i <span class="amber">polinòmica</span></h1>
     <p class="lead muted" style="margin-top:26px; max-width:8.8in">
       Abans d'obrir els notebooks: què farem en aquesta unitat, què és una regressió
@@ -163,10 +163,10 @@
       <h3>Regressió</h3>
       <div class="sub">La resposta és una quantitat</div>
       <span class="chip">massa del pingüí &rarr; 4.250 g</span><br>
-      <span class="chip">màxima de demà &rarr; 27,4 &deg;C</span><br>
+      <span class="chip">preu d'un habitatge &rarr; 180.000 $</span><br>
       <span class="chip">vendes de la setmana &rarr; 312 u.</span>
       <p style="margin-top:12px">Pot sortir <b>qualsevol valor</b>, i l'error es mesura en
-        les mateixes unitats: grams, graus, unitats venudes.</p>
+        les mateixes unitats: grams, dòlars, unitats venudes.</p>
     </div>
     <div class="card">
       <h3>Classificació</h3>
@@ -229,19 +229,19 @@
   <div class="eyebrow">3 &middot; Tipus 2 &middot; NB 2.2</div>
   <h2>Regressió lineal múltiple: moltes entrades</h2>
   <div class="body">
-  <div class="formula small">tmax_demà = <span class="q">?</span> &times; tmax
-    + <span class="q">?</span> &times; tmin + <span class="q">?</span> &times; sol
-    + <span class="q">?</span> &times; pressió + &hellip; + <span class="q">?</span></div>
+  <div class="formula small">preu = <span class="q">?</span> &times; ingressos
+    + <span class="q">?</span> &times; latitud + <span class="q">?</span> &times; longitud
+    + <span class="q">?</span> &times; edat + &hellip; + <span class="q">?</span></div>
   <div class="two" style="margin-top:34px; align-items:flex-start">
     <div>
       <p class="lead">La mateixa fórmula, però amb <b>un paràmetre per a cada
-        variable</b>. Amb deu variables, el model busca onze números.</p>
+        variable</b>. Amb vuit variables, el model busca nou números.</p>
       <p class="muted" style="margin-top:16px">Ja no és una recta i no es pot
         dibuixar. Per saber si funciona haurem de confiar en les <b>mètriques</b>.</p>
     </div>
     <div>
       <div class="colhead">La pregunta del NB 2.2</div>
-      <div class="colwho">Dades noves: onze anys de temps a Palma, dia a dia (AEMET)</div>
+      <div class="colwho">Dades noves: vint mil districtes de Califòrnia (cens de 1990)</div>
       <p>Si li donem més variables, el model <b>prediu millor</b>? I quant millor?
         Les afegirem d'una en una i ho mesurarem.</p>
       <p class="muted" style="margin-top:14px">Spoiler: la resposta no és la que
@@ -286,10 +286,10 @@
         <td>massa del pingüí a partir de l'aleta</td>
         <td class="mono">LinearRegression</td></tr>
     <tr><td class="name">Múltiple</td><td>diverses variables</td><td>no es pot dibuixar</td>
-        <td>màxima de demà a partir del temps d'avui</td>
+        <td>preu de l'habitatge a partir de les dades del districte</td>
         <td class="mono">LinearRegression</td></tr>
     <tr><td class="name">Polinòmica</td><td>les variables, les seves potències i els seus productes</td><td>una corba</td>
-        <td>consum elèctric segons la temperatura;<br>màxima de demà amb les variables combinades</td>
+        <td>consum elèctric segons la temperatura;<br>consum amb totes les variables combinades</td>
         <td class="mono">PolynomialFeatures<br>+ LinearRegression</td></tr>
   </table>
   <p class="muted" style="margin-top:28px; max-width:10.6in">
@@ -321,23 +321,24 @@
 
 <!-- 10 -->
 <section class="slide">
-  <div class="eyebrow">4 &middot; I amb el problema de veritat? &middot; NB 2.3</div>
-  <h2>La màxima de demà, amb les eines noves</h2>
+  <div class="eyebrow">4 &middot; I amb totes les variables? &middot; NB 2.3</div>
+  <h2>El consum elèctric, amb les eines noves</h2>
   <div class="body">
   <div class="two">
-    <div style="flex:0 0 6.6in"><div class="chartbox"><svg viewBox="0 0 620 370" width="100%" role="img" aria-label="Error d'entrenament i de validació dels models de la màxima de demà, amb la persistència com a referència"><circle cx="206" cy="22" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"/><text x="218" y="26.5" font-size="13" fill="#7C8AA0">entrenament</text><circle cx="316" cy="22" r="6" fill="#1C7293"/><text x="328" y="26.5" font-size="13" fill="#7C8AA0">validació (dies nous)</text><line x1="200.0" y1="52" x2="200.0" y2="308" stroke="#DDE4EE"/><text x="200.0" y="328" text-anchor="middle" font-size="13" fill="#7C8AA0">1,3</text><line x1="280.0" y1="52" x2="280.0" y2="308" stroke="#DDE4EE"/><text x="280.0" y="328" text-anchor="middle" font-size="13" fill="#7C8AA0">1,4</text><line x1="360.0" y1="52" x2="360.0" y2="308" stroke="#DDE4EE"/><text x="360.0" y="328" text-anchor="middle" font-size="13" fill="#7C8AA0">1,5</text><line x1="440.0" y1="52" x2="440.0" y2="308" stroke="#DDE4EE"/><text x="440.0" y="328" text-anchor="middle" font-size="13" fill="#7C8AA0">1,6</text><line x1="520.0" y1="52" x2="520.0" y2="308" stroke="#DDE4EE"/><text x="520.0" y="328" text-anchor="middle" font-size="13" fill="#7C8AA0">1,7</text><text x="360" y="352" text-anchor="middle" font-size="13" fill="#7C8AA0">error mitjà, MAE (°C) &middot; com més a l'esquerra, millor</text><line x1="471.2" y1="52" x2="471.2" y2="308" stroke="#7C8AA0" stroke-width="1.5" stroke-dasharray="5 4"/><text x="471.2" y="46" text-anchor="middle" font-size="12" fill="#7C8AA0">persistència 1,64</text><text x="604" y="46" text-anchor="end" font-size="12" fill="#7C8AA0">validació</text><text x="186" y="81" text-anchor="end" font-size="15" fill="#17233D">tmax sola</text><text x="186" y="97" text-anchor="end" font-size="12" fill="#7C8AA0">1 columna</text><line x1="468.8" y1="82" x2="450.4" y2="82" stroke="#B9C4D4" stroke-width="2"/><circle cx="468.8" cy="82" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>tmax sola: entrenament 1,636 °C</title></circle><circle cx="450.4" cy="82" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>tmax sola: validació 1,613 °C</title></circle><text x="604" y="87" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,61</text><text x="186" y="131" text-anchor="end" font-size="15" fill="#17233D">deu variables</text><text x="186" y="147" text-anchor="end" font-size="12" fill="#7C8AA0">10 columnes</text><line x1="421.6" y1="132" x2="393.6" y2="132" stroke="#B9C4D4" stroke-width="2"/><circle cx="421.6" cy="132" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>deu variables: entrenament 1,577 °C</title></circle><circle cx="393.6" cy="132" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>deu variables: validació 1,542 °C</title></circle><text x="604" y="137" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,54</text><text x="186" y="181" text-anchor="end" font-size="15" fill="#17233D">+ corba de l'any</text><text x="186" y="197" text-anchor="end" font-size="12" fill="#7C8AA0">14 columnes</text><line x1="323.2" y1="182" x2="326.4" y2="182" stroke="#B9C4D4" stroke-width="2"/><circle cx="323.2" cy="182" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>+ corba de l'any: entrenament 1,454 °C</title></circle><circle cx="326.4" cy="182" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>+ corba de l'any: validació 1,458 °C</title></circle><text x="604" y="187" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,46</text><text x="186" y="231" text-anchor="end" font-size="15" fill="#17233D">combinades, grau 2</text><text x="186" y="247" text-anchor="end" font-size="12" fill="#7C8AA0">65 columnes</text><line x1="308.8" y1="232" x2="344.8" y2="232" stroke="#B9C4D4" stroke-width="2"/><circle cx="308.8" cy="232" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>combinades, grau 2: entrenament 1,436 °C</title></circle><circle cx="344.8" cy="232" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>combinades, grau 2: validació 1,481 °C</title></circle><text x="604" y="237" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,48</text><text x="186" y="281" text-anchor="end" font-size="15" fill="#17233D">combinades, grau 3</text><text x="186" y="297" text-anchor="end" font-size="12" fill="#7C8AA0">285 columnes</text><line x1="216.0" y1="282" x2="441.6" y2="282" stroke="#B9C4D4" stroke-width="2"/><circle cx="216.0" cy="282" r="6" fill="#F7F9FC" stroke="#C9700F" stroke-width="2"><title>combinades, grau 3: entrenament 1,320 °C</title></circle><circle cx="441.6" cy="282" r="6.5" fill="#C9700F" stroke="#F7F9FC" stroke-width="2"><title>combinades, grau 3: validació 1,602 °C</title></circle><text x="604" y="287" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,60</text><text x="604" y="303" text-anchor="end" font-size="12" fill="#7C8AA0">sobreajust</text></svg></div></div>
+    <div style="flex:0 0 6.6in"><div class="chartbox"><svg viewBox="0 0 620 370" width="100%" role="img" aria-label="Error d'entrenament i de validació dels models del consum elèctric, amb el consum mitjà com a referència"><circle cx="206" cy="22" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"/><text x="218" y="26.5" font-size="13" fill="#7C8AA0">entrenament</text><circle cx="316" cy="22" r="6" fill="#1C7293"/><text x="328" y="26.5" font-size="13" fill="#7C8AA0">validació (dies nous)</text><line x1="231.3" y1="52" x2="231.3" y2="318" stroke="#DDE4EE"/><text x="231.3" y="338" text-anchor="middle" font-size="13" fill="#7C8AA0">1,0</text><line x1="309.6" y1="52" x2="309.6" y2="318" stroke="#DDE4EE"/><text x="309.6" y="338" text-anchor="middle" font-size="13" fill="#7C8AA0">1,5</text><line x1="387.8" y1="52" x2="387.8" y2="318" stroke="#DDE4EE"/><text x="387.8" y="338" text-anchor="middle" font-size="13" fill="#7C8AA0">2,0</text><line x1="466.1" y1="52" x2="466.1" y2="318" stroke="#DDE4EE"/><text x="466.1" y="338" text-anchor="middle" font-size="13" fill="#7C8AA0">2,5</text><line x1="544.3" y1="52" x2="544.3" y2="318" stroke="#DDE4EE"/><text x="544.3" y="338" text-anchor="middle" font-size="13" fill="#7C8AA0">3,0</text><text x="380" y="360" text-anchor="middle" font-size="13" fill="#7C8AA0">error mitjà, MAE (GWh) &middot; com més a l'esquerra, millor</text><line x1="547.8" y1="52" x2="547.8" y2="318" stroke="#7C8AA0" stroke-width="1.5" stroke-dasharray="5 4"/><text x="541.8" y="46" text-anchor="end" font-size="12" fill="#7C8AA0">consum mitjà 3,02</text><text x="604" y="46" text-anchor="end" font-size="12" fill="#7C8AA0">validació</text><text x="186" y="83" text-anchor="end" font-size="15" fill="#17233D">tmed sola</text><text x="186" y="99" text-anchor="end" font-size="12" fill="#7C8AA0">1 columna</text><line x1="365.2" y1="78" x2="405.4" y2="78" stroke="#B9C4D4" stroke-width="2"/><circle cx="365.2" cy="78" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>tmed sola: entrenament 1,855 GWh</title></circle><circle cx="405.4" cy="78" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>tmed sola: validació 2,113 GWh</title></circle><text x="604" y="83" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">2,11</text><text x="186" y="127" text-anchor="end" font-size="15" fill="#17233D">vuit variables</text><text x="186" y="143" text-anchor="end" font-size="12" fill="#7C8AA0">8 columnes</text><line x1="352.3" y1="122" x2="387.9" y2="122" stroke="#B9C4D4" stroke-width="2"/><circle cx="352.3" cy="122" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>vuit variables: entrenament 1,773 GWh</title></circle><circle cx="387.9" cy="122" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>vuit variables: validació 2,000 GWh</title></circle><text x="604" y="127" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">2,00</text><text x="186" y="171" text-anchor="end" font-size="15" fill="#17233D">+ corba de la temperatura</text><text x="186" y="187" text-anchor="end" font-size="12" fill="#7C8AA0">10 columnes</text><line x1="265.0" y1="166" x2="246.4" y2="166" stroke="#B9C4D4" stroke-width="2"/><circle cx="265.0" cy="166" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>+ corba de la temperatura: entrenament 1,216 GWh</title></circle><circle cx="246.4" cy="166" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>+ corba de la temperatura: validació 1,096 GWh</title></circle><text x="604" y="171" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,10</text><text x="186" y="215" text-anchor="end" font-size="15" fill="#17233D">combinades, grau 2</text><text x="186" y="231" text-anchor="end" font-size="12" fill="#7C8AA0">44 columnes</text><line x1="259.4" y1="210" x2="236.3" y2="210" stroke="#B9C4D4" stroke-width="2"/><circle cx="259.4" cy="210" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>combinades, grau 2: entrenament 1,180 GWh</title></circle><circle cx="236.3" cy="210" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>combinades, grau 2: validació 1,032 GWh</title></circle><text x="604" y="215" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,03</text><text x="186" y="259" text-anchor="end" font-size="15" fill="#17233D">combinades, grau 3</text><text x="186" y="275" text-anchor="end" font-size="12" fill="#7C8AA0">164 columnes</text><line x1="240.9" y1="254" x2="223.2" y2="254" stroke="#B9C4D4" stroke-width="2"/><circle cx="240.9" cy="254" r="6" fill="#F7F9FC" stroke="#1C7293" stroke-width="2"><title>combinades, grau 3: entrenament 1,061 GWh</title></circle><circle cx="223.2" cy="254" r="6.5" fill="#1C7293" stroke="#F7F9FC" stroke-width="2"><title>combinades, grau 3: validació 0,948 GWh</title></circle><text x="604" y="259" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">0,95</text><text x="186" y="303" text-anchor="end" font-size="15" fill="#17233D">combinades, grau 4</text><text x="186" y="319" text-anchor="end" font-size="12" fill="#7C8AA0">494 columnes</text><line x1="223.0" y1="298" x2="299.7" y2="298" stroke="#B9C4D4" stroke-width="2"/><circle cx="223.0" cy="298" r="6" fill="#F7F9FC" stroke="#C9700F" stroke-width="2"><title>combinades, grau 4: entrenament 0,947 GWh</title></circle><circle cx="299.7" cy="298" r="6.5" fill="#C9700F" stroke="#F7F9FC" stroke-width="2"><title>combinades, grau 4: validació 1,437 GWh</title></circle><text x="604" y="303" text-anchor="end" font-size="15" font-weight="700" fill="#17233D">1,44</text><text x="604" y="319" text-anchor="end" font-size="12" fill="#C9700F">R2 &minus;4,4</text></svg></div></div>
     <div>
-      <p><b>La corba de l'any</b>, un polinomi del dia de l'any, diu al model en quin
-        punt de l'onada de temperatures som. L'error baixa
-        de 1,54 a <b>1,46&nbsp;&deg;C</b>: més que totes les variables del NB 2.2 juntes.</p>
-      <p style="margin-top:14px"><b>Combinar variables</b>: amb diverses columnes,
-        <b>PolynomialFeatures</b> també les multiplica entre elles. Amb grau 2 surten 65
-        columnes i l'error baixa a 1,48&nbsp;&deg;C.</p>
-      <p style="margin-top:14px"><b>Massa columnes</b>: amb grau 3, l'entrenament
-        millora i la validació <span class="amber"><b>empitjora</b></span>. Sobreajust,
-        amb 2.500 dies de dades.</p>
-      <p class="muted" style="margin-top:16px">Més entrades ajuden si porten informació
-        nova. I la distància entre els dos punts és el senyal d'alarma.</p>
+      <p><b>Més variables en línia recta</b> gairebé no ajuden: amb vuit, l'error només
+        baixa de 2,11 a 2,00&nbsp;GWh.</p>
+      <p style="margin-top:14px"><b>La corba de la temperatura</b> sí: les mateixes vuit
+        variables amb la U baixen l'error a <b>1,10&nbsp;GWh</b>.</p>
+      <p style="margin-top:14px"><b>Combinar variables</b>: <b>PolynomialFeatures</b> també
+        les multiplica entre elles. Amb grau 3 surten 164 columnes i l'error baixa a
+        0,95&nbsp;GWh.</p>
+      <p style="margin-top:14px"><b>Massa columnes</b>: amb grau 4, l'entrenament millora i
+        la validació <span class="amber"><b>empitjora</b></span>. Uns quants dies amb errors
+        enormes enfonsen el R2 fins a &minus;4,4.</p>
+      <p class="muted" style="margin-top:16px">Més entrades ajuden si el model les pot
+        aprofitar. I si la validació s'allunya de l'entrenament, salta l'alarma.</p>
     </div>
   </div>
   </div>
@@ -350,9 +351,9 @@
   <h2>Quatre mètriques, quatre preguntes</h2>
   <div class="body">
   <div class="steps">
-    <div class="step"><div class="k">MAE</div><div class="u">grams, graus&hellip;</div>
+    <div class="step"><div class="k">MAE</div><div class="u">grams, dòlars&hellip;</div>
       <p>De mitjana, <b>quant m'equivoco</b>?</p></div>
-    <div class="step"><div class="k">RMSE</div><div class="u">grams, graus&hellip;</div>
+    <div class="step"><div class="k">RMSE</div><div class="u">grams, dòlars&hellip;</div>
       <p>Quant m'equivoco, <b>castigant més els errors grans</b>?</p></div>
     <div class="step"><div class="k">Desviació %</div><div class="u">percentatge</div>
       <p>De mitjana, <b>en quin percentatge</b> m'equivoco?</p></div>
@@ -360,8 +361,9 @@
       <p>Quina part de l'error de <b>dir sempre la mitjana</b> m'he estalviat?</p></div>
   </div>
   <p class="muted" style="margin-top:32px; max-width:10.8in">
-    I sempre comparant amb una <b>referència</b>. Un error de 1,6 &deg;C sembla molt
-    bo, fins que descobreixes que dir <i>demà farà com avui</i> ja s'equivoca això mateix.</p>
+    I sempre comparant amb una <b>referència</b>. Un error de 51.000 $ no diu res tot sol.
+    El que el fa bo és que dir el preu mitjà de la zona, com faria qualsevol agent
+    immobiliari, s'equivoca 78.000 $.</p>
   </div>
   <div class="num">11</div>
 </section>
@@ -369,12 +371,12 @@
 <!-- 12 -->
 <section class="slide">
   <div class="eyebrow">6 &middot; Una decisió per a tot el curs</div>
-  <h2>Les dades de l'AEMET, en tres trossos</h2>
+  <h2>Les dades, en tres trossos</h2>
   <div class="body">
   <div class="timeline">
-    <div class="t1"><b>Entrenament</b><small>2015&ndash;2021 &middot; el model hi aprèn amb fit()</small></div>
-    <div class="t2"><b>Validació</b><small>2022&ndash;2023</small></div>
-    <div class="t3"><b>Test segellat</b><small>2024&ndash;2025</small></div>
+    <div class="t1" style="flex:3"><b>Entrenament</b><small>60% &middot; el model hi aprèn amb fit()</small></div>
+    <div class="t2" style="flex:1"><b>Validació</b><small>20%</small></div>
+    <div class="t3" style="flex:1"><b>Test segellat</b><small>20%</small></div>
   </div>
   <div class="cards" style="margin-top:30px">
     <div class="card" style="padding:24px 26px">
@@ -385,8 +387,9 @@
         Ens dirà, al final, com funcionen de veritat els models.</p></div>
   </div>
   <p class="muted" style="margin-top:26px; max-width:10.8in">
-    Per què no triar els dies a l'atzar, com a la UT1? Perquè volem predir el futur:
-    el model aprèn del passat i s'avalua amb anys que encara no ha vist.</p>
+    Amb els districtes de Califòrnia, els trossos es fan a l'atzar. Amb la demanda
+    elèctrica del NB 2.3 tallarem per dates (2015&ndash;2021, 2022&ndash;2023 i, sota clau,
+    2024&ndash;2025), perquè allà volem predir dies que encara no han arribat.</p>
   </div>
   <div class="num">12</div>
 </section>

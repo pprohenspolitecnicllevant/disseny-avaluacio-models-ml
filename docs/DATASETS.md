@@ -215,17 +215,25 @@ convé tenir presents:
 
 Demanda elèctrica diària del sistema balear (Mallorca-Menorca i
 Eivissa-Formentera), publicada per **Red Eléctrica** a l'API pública REData, que
-no demana clau. Cada dia s'ajunta amb la `tmed` de l'estació B278, la del fitxer
-AEMET. El genera `generar_demanda_balears.py`, a la mateixa carpeta, que consulta
-l'API i llegeix `meteo_palma.csv`. La carpeta també té les diapositives de la UT2
-en versió demanda elèctrica (`UT2_regressio_lineal_REE.html` i el seu PDF): són les
-del deck AEMET amb les diapositives 7 a 10 refetes amb aquestes dades.
+no demana clau. Cada dia porta, com a columnes, el temps que va fer a l'estació
+B278 (aeroport de Palma). El genera `generar_demanda_balears.py`, a la mateixa
+carpeta, que consulta l'API i llegeix `meteo_palma.csv`.
 
-- **4.017 files**, del 2015-01-01 al 2025-12-30: exactament els dies del fitxer
-  AEMET. Per això el test segellat (2024-2025) i la partició 2015-2021 / 2022-2023
-  són els mateixos.
+**És el NB 2.3 del camí pingüins → California Housing.** L'alumnat no ha treballat
+mai amb AEMET, així que el notebook és un problema aïllat: no cita el fitxer AEMET
+ni els seus notebooks, i quan fa referència a la regressió lineal ho fa al NB 2.2
+de California Housing (les dues muntanyes de la latitud, les vuit variables, el
+20% de districtes segellat). L'AEMET només surt com a font de les columnes del
+temps.
+
+- **4.017 files**, del 2015-01-01 al 2025-12-30. Una fila = un dia.
 - Columnes: `fecha`, `any`, `mes`, `dia_any`, `cap_de_setmana` (1 dissabte i
-  diumenge), `tmed` (°C) i `demanda` (GWh, de 9,6 a 27,5; uns 16 de mitjana).
+  diumenge), `tmed`, `tmax`, `tmin` (°C), `prec` (mm), `sol` (h), `velmedia` (m/s)
+  i `demanda` (GWh, de 9,6 a 27,5; uns 16 de mitjana).
+- Buits: `sol` (4 dies) i `velmedia` (5 dies). Només afecten la secció 8, que els
+  treu amb `dropna`.
+- **Test segellat propi: 2024 i 2025**, per dates. Entrenament 2015-2021, validació
+  2022-2023.
 
 **Per què.** Per al NB 2.3 es buscava una relació on la recta fallés de debò, el
 polinomi l'arreglés i el sobreajust sortís amb qualsevol mostra. La demanda contra
@@ -241,20 +249,42 @@ i els turistes a l'estiu. El consum mínim és entre 13 i 16 °C.
 Amb 15 dies (`random_state=2`, cap dia per sota dels 10 °C) la vall de validació
 cau al grau 2 (1,54 GWh) i el grau 15 dóna més de 40.000 GWh d'error. Sobre 40
 mostres de 15 dies, el millor grau va del 2 al 6. El grau 12 es desboca sempre
-(com a mínim 13 GWh d'error) i el grau 8, gairebé sempre (31 GWh de mediana). La
-secció 8 torna a `tmax_dema` amb el fitxer AEMET; la corba de l'any s'hi tria amb
-una escombrada (grau 4, 1,458 °C).
+(com a mínim 13 GWh d'error) i el grau 8, gairebé sempre (31 GWh de mediana).
+
+**La secció 8, amb totes les variables** (`tmed`, `tmax`, `tmin`, `prec`, `sol`,
+`velmedia`, `cap_de_setmana`, `dia_any`):
+
+| Model | Columnes | MAE validació | R2 validació |
+|---|---|---|---|
+| Vuit variables, lineal | 8 | 2,00 GWh | 0,58 |
+| + corba de la temperatura (grau 2) | 10 | 1,10 GWh | 0,86 |
+| `PolynomialFeatures` grau 2 | 44 | 1,03 GWh | 0,88 |
+| Grau 3 | 164 | 0,95 GWh | 0,89 |
+| Grau 4 | 494 | 1,44 GWh | −4,36 |
+
+El grau 4 sobreajusta amb i sense escalar les variables (comprovat amb
+`MinMaxScaler`): no és un problema numèric. El R2 s'enfonsa per cinc dies amb
+errors de més de 10 GWh, sobretot el 24 de maig del 2022 (52 mm de pluja amb gairebé
+11 hores de sol, una combinació que no surt a l'entrenament), on prediu −220 GWh.
+El notebook ho fa servir per explicar per què convé mirar el MAE i el R2 alhora.
 
 **Advertències, totes aprofitades al notebook:**
 
 - **El 2020** (confinament i estiu sense turistes) fa una franja de punts baixos.
-  Es manté a l'entrenament i surt al debat. És també el motiu que, als graus 2 i
-  4, la validació surti una mica millor que l'entrenament.
+  Es manté a l'entrenament i surt al debat. És també el motiu que, en gairebé tots
+  els models, la validació surti millor que l'entrenament; el notebook ho explica
+  a la secció 8.
 - **La U només demana grau 2.** El grau 4 no millora la validació (1,18 GWh). Per
   veure que una forma més complexa demana més grau hi ha l'exercici 5: la demanda
   contra el dia de l'any necessita grau 6 (1,38 GWh).
 - **Calor i turistes van junts** a l'estiu i el model no els pot separar. Es
   planteja al debat i enllaça amb la UT3.
+
+**Diapositives.** La carpeta té també el deck de la UT2 per a aquest camí
+(`UT2_regressio_lineal_REE.html` i el seu PDF). És el deck AEMET amb les
+diapositives 3, 6, 8, 11 i 12 passades a California Housing (els exemples del
+NB 2.2, la referència del preu mitjà de la zona, els trossos 60/20/20) i les 7, 9
+i 10 refetes amb la demanda elèctrica.
 
 **Candidats provats i descartats** amb el mateix protocol (R2 de validació de la
 recta contra el millor polinomi, i sobreajust amb 15 mostres i 6 llavors):

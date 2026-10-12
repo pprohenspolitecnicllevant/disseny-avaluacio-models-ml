@@ -1,9 +1,9 @@
 """Genera demanda_balears.csv: demanda elèctrica diària de les Illes Balears
-(Red Eléctrica) amb la temperatura mitjana de l'aeroport de Palma (AEMET).
+(Red Eléctrica) amb el temps de cada dia a l'aeroport de Palma (AEMET).
 
 La demanda es consulta a l'API pública REData de Red Eléctrica, que no demana
-cap clau. La temperatura surt de meteo_palma.csv, el fitxer AEMET del curs, que
-ha d'estar al seu lloc dins del repositori.
+cap clau. Les columnes meteorològiques surten de meteo_palma.csv, el fitxer AEMET
+del repositori, que ha d'estar al seu lloc.
 
 Ús, des de l'arrel del repositori:
 
@@ -30,6 +30,10 @@ API = (
 )
 ANYS = range(2015, 2026)
 
+# Temps del dia a l'aeroport de Palma: temperatures (°C), pluja (mm), hores de sol
+# i vent mitjà (m/s)
+TEMPS = ["tmed", "tmax", "tmin", "prec", "sol", "velmedia"]
+
 
 def demanda_any(any_):
     """Torna la demanda diària d'un any, en MWh, com a llista de (data, valor)."""
@@ -45,11 +49,11 @@ def main():
     demanda["fecha"] = pd.to_datetime(demanda["fecha"])
     demanda["demanda"] = (demanda["demanda"] / 1000).round(3)  # MWh -> GWh
 
-    meteo = pd.read_csv(METEO, parse_dates=["fecha"])[["fecha", "any", "mes", "dia_any", "tmed"]]
+    meteo = pd.read_csv(METEO, parse_dates=["fecha"])[["fecha", "any", "mes", "dia_any"] + TEMPS]
 
     df = meteo.merge(demanda, on="fecha", how="inner")
     df["cap_de_setmana"] = (df["fecha"].dt.dayofweek >= 5).astype(int)
-    df = df[["fecha", "any", "mes", "dia_any", "cap_de_setmana", "tmed", "demanda"]]
+    df = df[["fecha", "any", "mes", "dia_any", "cap_de_setmana"] + TEMPS + ["demanda"]]
 
     df.to_csv(SORTIDA, index=False, date_format="%Y-%m-%d")
     print(f"{len(df)} dies, del {df['fecha'].min():%Y-%m-%d} al {df['fecha'].max():%Y-%m-%d} -> {SORTIDA.name}")

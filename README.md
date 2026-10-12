@@ -48,7 +48,8 @@ llibre de Géron, per a qui prefereixi treballar la regressió amb preus d'habit
 
 El NB 2.3 té una tercera versió amb la **demanda elèctrica diària de les Balears**
 (Red Eléctrica) contra la temperatura de Palma: una U que la recta no pot seguir,
-ideal per veure l'infraajust i el sobreajust.
+ideal per veure l'infraajust i el sobreajust. Està pensada per seguir el NB 2.2 de
+California Housing, i té el seu propi deck de diapositives a la mateixa carpeta.
 
 El conjunt principal del curs són **mesures meteorològiques diàries de l'estació
 B278 (aeroport de Palma)**, publicades per l'AEMET: 4.017 dies, del gener de 2015
