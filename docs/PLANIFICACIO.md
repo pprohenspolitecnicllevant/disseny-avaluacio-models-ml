@@ -279,7 +279,7 @@ complementàries i les observacions, tal com són al full.
 
 - **NB 2.1.** Regressió lineal sobre una variable, amb la recta dibuixada sobre el núvol de punts.
 - **NB 2.2.** Regressió múltiple: comparar l'ajust afegint variables d'una en una.
-- **NB 2.3.** Escombrada de graus polinòmics per veure el sobreajust amb els ulls.
+- **NB 2.3.** Comparació de graus polinòmics per veure el sobreajust amb els ulls.
 - Es reserva el 18% de les dades (anys 2024 i 2025) com a test segellat, que no s'obrirà fins a la UT10.
 - Exercici: triar la mètrica adequada per a una predicció de vendes setmanals i justificar-la.
 
