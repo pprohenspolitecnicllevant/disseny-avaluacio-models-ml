@@ -39,8 +39,7 @@ d'entrega de cada activitat.
 
 [**Conceptes clau de la UT1 i la UT2**](UT02-Regressio_lineal_polinomica/UT1_UT2_conceptes.pdf)
 (PDF): tots els conceptes que han sortit a les dues unitats, amb els principals
-en negreta, el notebook on apareix cadascun i una casella per marcar els que ja
-saps explicar.
+en negreta i el notebook on apareix cadascun.
 
 ## Les dades
 

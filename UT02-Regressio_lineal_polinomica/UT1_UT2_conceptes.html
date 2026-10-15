@@ -44,8 +44,6 @@
   ul.c li { display: flex; gap: 9px; padding: 4px 0; border-top: 1px solid #E4EAF2;
             break-inside: avoid; }
   ul.c li:first-child { border-top: none; }
-  .box { flex: 0 0 10px; height: 10px; margin-top: 3px; border: 1.2px solid #9FB0C6;
-         border-radius: 2px; }
   .term { flex: 0 0 47mm; padding-right: 8px; }
   .main .term { font-weight: 700; }
   .desc { flex: 1; }
@@ -68,8 +66,8 @@
     <h3>Com fer-la servir</h3>
     <p>Aquesta llista recull els conceptes que han sortit a la UT1 i a la UT2. Tenla a
        mà quan estudiïs i quan facis els exercicis.</p>
-    <p>Marca la casella d'un concepte quan el sàpigues explicar amb les teves paraules.
-       Si no te'n surts, torna al notebook que s'hi indica.</p>
+    <p>Si no saps explicar un concepte amb les teves paraules, torna al notebook
+       que s'hi indica.</p>
   </div>
   <div>
     <h3>Llegenda</h3>
@@ -85,131 +83,131 @@
 <!-- ============================================================ -->
 <h2><span class="n">1</span>Fonaments</h2>
 <ul class="c main">
-  <li><span class="box"></span><span class="term">Aprenentatge automàtic</span><span class="desc">L'algorisme dedueix les regles a partir d'exemples (dades + respostes → regles), en lloc d'escriure-les nosaltres. El model només és tan bo com les dades que li donem. <span class="ref">NB 1.1 · diapos UT1</span></span></li>
-  <li><span class="box"></span><span class="term">Model</span><span class="desc">Una fórmula amb incògnites. Acabat de crear en té la forma, però no els números. <span class="ref">diapos UT1</span></span></li>
-  <li><span class="box"></span><span class="term">Entrenar (aprendre)</span><span class="desc">Buscar els valors dels paràmetres que fan l'error més petit: el fons de la «vall» de l'error. <span class="ref">diapos UT1 · NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Paràmetres (pesos o coeficients)</span><span class="desc">Els números que el model troba sol dins de <code>fit()</code>. A scikit-learn acaben amb guió baix: <code>coef_</code>, <code>intercept_</code>. <span class="ref">NB 1.2</span></span></li>
-  <li><span class="box"></span><span class="term">Hiperparàmetres</span><span class="desc">La configuració que triem nosaltres abans d'entrenar i que el model no toca mai: <code>max_depth</code>, <code>test_size</code>, el grau del polinomi. <span class="ref">NB 1.2 · NB 2.3</span><span class="ut">→ UT7</span></span></li>
-  <li><span class="box"></span><span class="term">Regressió i classificació</span><span class="desc">La regressió prediu un número; la classificació, una categoria d'un conjunt tancat. <span class="ref">NB 1.1 · diapos UT2</span><span class="ut">→ UT4</span></span></li>
+  <li><span class="term">Aprenentatge automàtic</span><span class="desc">L'algorisme dedueix les regles a partir d'exemples (dades + respostes → regles), en lloc d'escriure-les nosaltres. El model només és tan bo com les dades que li donem. <span class="ref">NB 1.1 · diapos UT1</span></span></li>
+  <li><span class="term">Model</span><span class="desc">Una fórmula amb incògnites. Acabat de crear en té la forma, però no els números. <span class="ref">diapos UT1</span></span></li>
+  <li><span class="term">Entrenar (aprendre)</span><span class="desc">Buscar els valors dels paràmetres que fan l'error més petit: el fons de la «vall» de l'error. <span class="ref">diapos UT1 · NB 2.1</span></span></li>
+  <li><span class="term">Paràmetres (pesos o coeficients)</span><span class="desc">Els números que el model troba sol dins de <code>fit()</code>. A scikit-learn acaben amb guió baix: <code>coef_</code>, <code>intercept_</code>. <span class="ref">NB 1.2</span></span></li>
+  <li><span class="term">Hiperparàmetres</span><span class="desc">La configuració que triem nosaltres abans d'entrenar i que el model no toca mai: <code>max_depth</code>, <code>test_size</code>, el grau del polinomi. <span class="ref">NB 1.2 · NB 2.3</span><span class="ut">→ UT7</span></span></li>
+  <li><span class="term">Regressió i classificació</span><span class="desc">La regressió prediu un número; la classificació, una categoria d'un conjunt tancat. <span class="ref">NB 1.1 · diapos UT2</span><span class="ut">→ UT4</span></span></li>
 </ul>
 <div class="sub">Vist de passada</div>
 <ul class="c minor">
-  <li><span class="box"></span><span class="term">Aprenentatge supervisat</span><span class="desc">Aprendre d'exemples dels quals ja coneixem la resposta. <span class="ref">NB 1.1</span></span></li>
-  <li><span class="box"></span><span class="term">Predir no és endevinar el futur</span><span class="desc">És omplir un buit amb informació que no tenim, com la massa d'un pingüí que no hem pesat. <span class="ref">NB 1.1</span></span></li>
+  <li><span class="term">Aprenentatge supervisat</span><span class="desc">Aprendre d'exemples dels quals ja coneixem la resposta. <span class="ref">NB 1.1</span></span></li>
+  <li><span class="term">Predir no és endevinar el futur</span><span class="desc">És omplir un buit amb informació que no tenim, com la massa d'un pingüí que no hem pesat. <span class="ref">NB 1.1</span></span></li>
 </ul>
 
 <!-- ============================================================ -->
 <h2><span class="n">2</span>Les dades</h2>
 <ul class="c main">
-  <li><span class="box"></span><span class="term">Mostra, característica i variable objectiu</span><span class="desc">Una fila, una columna d'entrada (<i>feature</i>) i la columna que volem predir (<i>target</i>). L'objectiu no pot ser mai una entrada. <span class="ref">NB 1.1</span></span></li>
-  <li><span class="box"></span><span class="term">X i y</span><span class="desc"><code>X</code> és la taula d'entrades: dues dimensions, en majúscula i amb doble claudàtor encara que tingui una sola columna. <code>y</code> és el vector objectiu. <span class="ref">NB 1.2 · NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Valors absents</span><span class="desc">La majoria d'estimadors de scikit-learn no els accepten. Tres sortides: eliminar les files (<code>dropna</code>), eliminar la columna o imputar. <span class="ref">NB 1.1</span><span class="ut">→ UT3</span></span></li>
-  <li><span class="box"></span><span class="term">Mirar les dades abans de modelar</span><span class="desc"><code>shape</code>, <code>head</code>, <code>info</code>, <code>describe</code>, <code>value_counts</code> i <code>isna</code>, abans d'entrenar res. <span class="ref">NB 1.1 · NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Histograma i mapa de dispersió</span><span class="desc">L'histograma mostra la forma d'una distribució; el mapa de dispersió enfronta dues variables. <span class="ref">NB 1.1 · NB 2.1 · NB 2.2</span></span></li>
+  <li><span class="term">Mostra, característica i variable objectiu</span><span class="desc">Una fila, una columna d'entrada (<i>feature</i>) i la columna que volem predir (<i>target</i>). L'objectiu no pot ser mai una entrada. <span class="ref">NB 1.1</span></span></li>
+  <li><span class="term">X i y</span><span class="desc"><code>X</code> és la taula d'entrades: dues dimensions, en majúscula i amb doble claudàtor encara que tingui una sola columna. <code>y</code> és el vector objectiu. <span class="ref">NB 1.2 · NB 2.1</span></span></li>
+  <li><span class="term">Valors absents</span><span class="desc">La majoria d'estimadors de scikit-learn no els accepten. Tres sortides: eliminar les files (<code>dropna</code>), eliminar la columna o imputar. <span class="ref">NB 1.1</span><span class="ut">→ UT3</span></span></li>
+  <li><span class="term">Mirar les dades abans de modelar</span><span class="desc"><code>shape</code>, <code>head</code>, <code>info</code>, <code>describe</code>, <code>value_counts</code> i <code>isna</code>, abans d'entrenar res. <span class="ref">NB 1.1 · NB 2.2</span></span></li>
+  <li><span class="term">Histograma i mapa de dispersió</span><span class="desc">L'histograma mostra la forma d'una distribució; el mapa de dispersió enfronta dues variables. <span class="ref">NB 1.1 · NB 2.1 · NB 2.2</span></span></li>
 </ul>
 <div class="sub">Vist de passada</div>
 <ul class="c minor">
-  <li><span class="box"></span><span class="term">Colab i dades per URL</span><span class="desc"><code>read_csv</code> accepta una URL, i així tothom treballa amb el mateix fitxer. <span class="ref">NB 1.1</span></span></li>
-  <li><span class="box"></span><span class="term">Tipus de columna</span><span class="desc"><code>float64</code>, <code>int64</code> i <code>object</code>. Una columna numèrica que surt com a <code>object</code> amaga text. <span class="ref">NB 1.1</span></span></li>
-  <li><span class="box"></span><span class="term">Llegir un <code>describe()</code></span><span class="desc">Recompte, mínims i màxims raonables, mitjana contra mediana, quartils. <span class="ref">NB 1.1</span></span></li>
-  <li><span class="box"></span><span class="term">DataFrame i Series</span><span class="desc">Selecció amb <code>[[...]]</code> i <code>[...]</code>, filtres de cert o fals, <code>.loc</code> i <code>groupby</code>. <span class="ref">NB 1.1 · NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Variables categòriques</span><span class="desc">Cap model accepta text, i numerar-les 0, 1, 2 inventa un ordre que no existeix. La solució és el one-hot. <span class="ref">NB 1.1 · NB 2.2</span><span class="ut">→ UT3</span></span></li>
-  <li><span class="box"></span><span class="term">Imputació</span><span class="desc">Omplir els buits amb la mitjana, la mediana o un valor estimat. <span class="ref">NB 1.1</span><span class="ut">→ UT3</span></span></li>
-  <li><span class="box"></span><span class="term">Desbalanç de classes</span><span class="desc">Classes amb proporcions molt diferents, com les tres espècies de pingüins. <span class="ref">NB 1.1</span><span class="ut">→ UT4</span></span></li>
-  <li><span class="box"></span><span class="term">Correlació que canvia de signe</span><span class="desc">Mirant tots els pingüins junts, els becs llargs són prims; dins de cada espècie, són gruixuts. <span class="ref">NB 1.1</span><span class="ut">→ UT3</span></span></li>
-  <li><span class="box"></span><span class="term">Soroll</span><span class="desc">El gruix del núvol de punts: un error que cap model pot eliminar amb les entrades que té. <span class="ref">NB 2.1 · NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Valors atípics i errors de dades</span><span class="desc">Una sola dada mal apuntada dispara el RMSE. Els casos reals difícils no es treuen per maquillar les mètriques. <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Dades tallades</span><span class="desc">Els preus topats a 500.001 $: el model no veu mai cap preu més alt. <span class="ref">NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Categories amb molt poques mostres</span><span class="desc"><code>ISLAND</code>, amb quatre districtes, dona estimacions poc fiables. <span class="ref">NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Gràfica amb color</span><span class="desc"><code>scatter</code> amb <code>c=</code> i <code>colorbar</code> per afegir-hi una tercera variable. <span class="ref">NB 2.2</span></span></li>
+  <li><span class="term">Colab i dades per URL</span><span class="desc"><code>read_csv</code> accepta una URL, i així tothom treballa amb el mateix fitxer. <span class="ref">NB 1.1</span></span></li>
+  <li><span class="term">Tipus de columna</span><span class="desc"><code>float64</code>, <code>int64</code> i <code>object</code>. Una columna numèrica que surt com a <code>object</code> amaga text. <span class="ref">NB 1.1</span></span></li>
+  <li><span class="term">Llegir un <code>describe()</code></span><span class="desc">Recompte, mínims i màxims raonables, mitjana contra mediana, quartils. <span class="ref">NB 1.1</span></span></li>
+  <li><span class="term">DataFrame i Series</span><span class="desc">Selecció amb <code>[[...]]</code> i <code>[...]</code>, filtres de cert o fals, <code>.loc</code> i <code>groupby</code>. <span class="ref">NB 1.1 · NB 2.2</span></span></li>
+  <li><span class="term">Variables categòriques</span><span class="desc">Cap model accepta text, i numerar-les 0, 1, 2 inventa un ordre que no existeix. La solució és el one-hot. <span class="ref">NB 1.1 · NB 2.2</span><span class="ut">→ UT3</span></span></li>
+  <li><span class="term">Imputació</span><span class="desc">Omplir els buits amb la mitjana, la mediana o un valor estimat. <span class="ref">NB 1.1</span><span class="ut">→ UT3</span></span></li>
+  <li><span class="term">Desbalanç de classes</span><span class="desc">Classes amb proporcions molt diferents, com les tres espècies de pingüins. <span class="ref">NB 1.1</span><span class="ut">→ UT4</span></span></li>
+  <li><span class="term">Correlació que canvia de signe</span><span class="desc">Mirant tots els pingüins junts, els becs llargs són prims; dins de cada espècie, són gruixuts. <span class="ref">NB 1.1</span><span class="ut">→ UT3</span></span></li>
+  <li><span class="term">Soroll</span><span class="desc">El gruix del núvol de punts: un error que cap model pot eliminar amb les entrades que té. <span class="ref">NB 2.1 · NB 2.2</span></span></li>
+  <li><span class="term">Valors atípics i errors de dades</span><span class="desc">Una sola dada mal apuntada dispara el RMSE. Els casos reals difícils no es treuen per maquillar les mètriques. <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">Dades tallades</span><span class="desc">Els preus topats a 500.001 $: el model no veu mai cap preu més alt. <span class="ref">NB 2.2</span></span></li>
+  <li><span class="term">Categories amb molt poques mostres</span><span class="desc"><code>ISLAND</code>, amb quatre districtes, dona estimacions poc fiables. <span class="ref">NB 2.2</span></span></li>
+  <li><span class="term">Gràfica amb color</span><span class="desc"><code>scatter</code> amb <code>c=</code> i <code>colorbar</code> per afegir-hi una tercera variable. <span class="ref">NB 2.2</span></span></li>
 </ul>
 
 <!-- ============================================================ -->
 <h2><span class="n">3</span>Treballar amb scikit-learn</h2>
 <ul class="c main">
-  <li><span class="box"></span><span class="term">L'estimador és un objecte</span><span class="desc">Cada model és una classe. <code>LinearRegression()</code> crea un objecte que encara no sap res. <span class="ref">NB 1.2</span></span></li>
-  <li><span class="box"></span><span class="term"><code>fit</code>, <code>predict</code> i <code>score</code></span><span class="desc">Aprendre (canvia l'estat intern de l'objecte), predir mostres noves i puntuar. La mateixa interfície serveix per a tots els models. <span class="ref">NB 1.2 · diapos UT1</span></span></li>
-  <li><span class="box"></span><span class="term">Transformadors: <code>fit</code>, <code>transform</code> i <code>fit_transform</code></span><span class="desc"><code>fit</code> prepara l'eina mirant les dades; <code>transform</code> les converteix. Es preparen només amb l'entrenament i després es reapliquen a la validació i al test. <span class="ref">NB 2.3</span><span class="ut">→ UT3 · UT9</span></span></li>
-  <li><span class="box"></span><span class="term"><code>random_state</code></span><span class="desc">Fixa l'atzar perquè la partició i el resultat es puguin reproduir. Al NB 2.2 és «el pany del segell». <span class="ref">NB 1.2 · NB 2.2</span></span></li>
+  <li><span class="term">L'estimador és un objecte</span><span class="desc">Cada model és una classe. <code>LinearRegression()</code> crea un objecte que encara no sap res. <span class="ref">NB 1.2</span></span></li>
+  <li><span class="term"><code>fit</code>, <code>predict</code> i <code>score</code></span><span class="desc">Aprendre (canvia l'estat intern de l'objecte), predir mostres noves i puntuar. La mateixa interfície serveix per a tots els models. <span class="ref">NB 1.2 · diapos UT1</span></span></li>
+  <li><span class="term">Transformadors: <code>fit</code>, <code>transform</code> i <code>fit_transform</code></span><span class="desc"><code>fit</code> prepara l'eina mirant les dades; <code>transform</code> les converteix. Es preparen només amb l'entrenament i després es reapliquen a la validació i al test. <span class="ref">NB 2.3</span><span class="ut">→ UT3 · UT9</span></span></li>
+  <li><span class="term"><code>random_state</code></span><span class="desc">Fixa l'atzar perquè la partició i el resultat es puguin reproduir. Al NB 2.2 és «el pany del segell». <span class="ref">NB 1.2 · NB 2.2</span></span></li>
 </ul>
 <div class="sub">Vist de passada</div>
 <ul class="c minor">
-  <li><span class="box"></span><span class="term">Altres estimadors, la mateixa interfície</span><span class="desc"><code>DecisionTreeClassifier</code>, <code>DecisionTreeRegressor</code>, <code>RandomForestRegressor</code>, <code>SVC</code>: canviar de model és canviar una línia. <span class="ref">NB 1.2</span><span class="ut">→ UT5 · UT6</span></span></li>
-  <li><span class="box"></span><span class="term">Arbre de decisió</span><span class="desc">El classificador d'espècies del NB 1.2, amb <code>max_depth=4</code>. <span class="ref">NB 1.2</span><span class="ut">→ UT5</span></span></li>
+  <li><span class="term">Altres estimadors, la mateixa interfície</span><span class="desc"><code>DecisionTreeClassifier</code>, <code>DecisionTreeRegressor</code>, <code>RandomForestRegressor</code>, <code>SVC</code>: canviar de model és canviar una línia. <span class="ref">NB 1.2</span><span class="ut">→ UT5 · UT6</span></span></li>
+  <li><span class="term">Arbre de decisió</span><span class="desc">El classificador d'espècies del NB 1.2, amb <code>max_depth=4</code>. <span class="ref">NB 1.2</span><span class="ut">→ UT5</span></span></li>
 </ul>
 
 <!-- ============================================================ -->
 <h2><span class="n">4</span>Avaluar honestament</h2>
 <ul class="c main">
-  <li><span class="box"></span><span class="term">Entrenament i prova (<code>train_test_split</code>)</span><span class="desc">Apartar dades abans d'entrenar, amb un test d'entre el 10% i el 30%. Avaluar amb dades vistes és corregir un examen a qui ha vist les respostes. <span class="ref">NB 1.2</span><span class="ut">→ UT7</span></span></li>
-  <li><span class="box"></span><span class="term">Conjunt de validació</span><span class="desc">Un tros per comparar models i triar hiperparàmetres sense tocar el test (60/20/20). <span class="ref">NB 2.2 · NB 2.3</span><span class="ut">→ UT7</span></span></li>
-  <li><span class="box"></span><span class="term">Test segellat</span><span class="desc">Es reserva al principi i s'obre una sola vegada, a la UT10. Cada decisió presa mirant la validació la fa una mica optimista. <span class="ref">NB 2.2 · NB 2.3</span><span class="ut">→ UT10</span></span></li>
-  <li><span class="box"></span><span class="term">Model de referència (<code>DummyRegressor</code>, <code>DummyClassifier</code>)</span><span class="desc">Un model que no mira les dades: diu sempre la mitjana o la classe més freqüent. Un número tot sol no vol dir res fins que el compares. <span class="ref">NB 1.2 · NB 2.1 · NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Fuga d'informació (<i>data leakage</i>)</span><span class="desc">El model veu informació que no tindria en predir: l'objectiu entre les entrades, o un transformador preparat amb dades de validació. <span class="ref">NB 1.2 · NB 2.3</span><span class="ut">→ UT7 · UT9</span></span></li>
+  <li><span class="term">Entrenament i prova (<code>train_test_split</code>)</span><span class="desc">Apartar dades abans d'entrenar, amb un test d'entre el 10% i el 30%. Avaluar amb dades vistes és corregir un examen a qui ha vist les respostes. <span class="ref">NB 1.2</span><span class="ut">→ UT7</span></span></li>
+  <li><span class="term">Conjunt de validació</span><span class="desc">Un tros per comparar models i triar hiperparàmetres sense tocar el test (60/20/20). <span class="ref">NB 2.2 · NB 2.3</span><span class="ut">→ UT7</span></span></li>
+  <li><span class="term">Test segellat</span><span class="desc">Es reserva al principi i s'obre una sola vegada, a la UT10. Cada decisió presa mirant la validació la fa una mica optimista. <span class="ref">NB 2.2 · NB 2.3</span><span class="ut">→ UT10</span></span></li>
+  <li><span class="term">Model de referència (<code>DummyRegressor</code>, <code>DummyClassifier</code>)</span><span class="desc">Un model que no mira les dades: diu sempre la mitjana o la classe més freqüent. Un número tot sol no vol dir res fins que el compares. <span class="ref">NB 1.2 · NB 2.1 · NB 2.2</span></span></li>
+  <li><span class="term">Fuga d'informació (<i>data leakage</i>)</span><span class="desc">El model veu informació que no tindria en predir: l'objectiu entre les entrades, o un transformador preparat amb dades de validació. <span class="ref">NB 1.2 · NB 2.3</span><span class="ut">→ UT7 · UT9</span></span></li>
 </ul>
 <div class="sub">Vist de passada</div>
 <ul class="c minor">
-  <li><span class="box"></span><span class="term">Referència de sentit comú</span><span class="desc">El que diria un expert sense aprenentatge automàtic, com el preu mitjà de la zona. També és un model, i es calcula només amb l'entrenament. <span class="ref">NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Mirar casos concrets</span><span class="desc">Una taula real / predit / error ensenya el que la mitjana amaga. <span class="ref">NB 1.2 · NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Variabilitat de la mesura</span><span class="desc">Amb un test petit, canviar la llavor mou el R2. «El model no necessita més dades, la mesura sí.» <span class="ref">NB 1.2</span><span class="ut">→ UT7</span></span></li>
-  <li><span class="box"></span><span class="term">Partició a l'atzar o per dates</span><span class="desc">A l'atzar quan les mostres són independents, com al cens; per dates quan volem predir dies que encara no han arribat. <span class="ref">NB 2.2 · NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">Mostres veïnes que s'assemblen</span><span class="desc">Amb una partició a l'atzar, un districte de prova sovint té el veí a l'entrenament, i el resultat surt optimista. <span class="ref">NB 2.2</span><span class="ut">→ UT7</span></span></li>
-  <li><span class="box"></span><span class="term">Validació creuada</span><span class="desc">La versió sòlida de partir les dades en entrenament i validació. <span class="ref">NB 1.2 · NB 2.2</span><span class="ut">→ UT7</span></span></li>
+  <li><span class="term">Referència de sentit comú</span><span class="desc">El que diria un expert sense aprenentatge automàtic, com el preu mitjà de la zona. També és un model, i es calcula només amb l'entrenament. <span class="ref">NB 2.2</span></span></li>
+  <li><span class="term">Mirar casos concrets</span><span class="desc">Una taula real / predit / error ensenya el que la mitjana amaga. <span class="ref">NB 1.2 · NB 2.1</span></span></li>
+  <li><span class="term">Variabilitat de la mesura</span><span class="desc">Amb un test petit, canviar la llavor mou el R2. «El model no necessita més dades, la mesura sí.» <span class="ref">NB 1.2</span><span class="ut">→ UT7</span></span></li>
+  <li><span class="term">Partició a l'atzar o per dates</span><span class="desc">A l'atzar quan les mostres són independents, com al cens; per dates quan volem predir dies que encara no han arribat. <span class="ref">NB 2.2 · NB 2.3</span></span></li>
+  <li><span class="term">Mostres veïnes que s'assemblen</span><span class="desc">Amb una partició a l'atzar, un districte de prova sovint té el veí a l'entrenament, i el resultat surt optimista. <span class="ref">NB 2.2</span><span class="ut">→ UT7</span></span></li>
+  <li><span class="term">Validació creuada</span><span class="desc">La versió sòlida de partir les dades en entrenament i validació. <span class="ref">NB 1.2 · NB 2.2</span><span class="ut">→ UT7</span></span></li>
 </ul>
 
 <!-- ============================================================ -->
 <h2><span class="n">5</span>Regressió lineal i polinòmica</h2>
 <ul class="c main">
-  <li><span class="box"></span><span class="term">Regressió lineal</span><span class="desc">Multiplicar cada entrada per un número i sumar-ho tot. No sap fer corbes ni condicions. <span class="ref">diapos UT2</span></span></li>
-  <li><span class="box"></span><span class="term">Regressió lineal simple</span><span class="desc">Una entrada i una recta, definida pel pendent (quant puja per cada unitat) i l'ordenada a l'origen (el punt de partida). <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Regressió lineal múltiple</span><span class="desc">Diverses entrades, amb un coeficient per a cada variable. Ja no es pot dibuixar. <span class="ref">NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Llegir els coeficients</span><span class="desc">«Per cada mil·límetre d'aleta, uns 50 grams més.» Amb diverses variables s'hi afegeix «si la resta no canvien», i no es poden comparar entre si. <span class="ref">NB 1.2 · NB 2.1 · NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Afegir variables</span><span class="desc">Només ajuda si aporta informació nova que el model pugui aprofitar. Té costos: cal tenir-les totes per predir, el model s'explica pitjor i sobreajusta més fàcilment. <span class="ref">NB 2.2 · NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">Extrapolació</span><span class="desc">Predir fora del rang de les dades d'entrenament, on el model continua la recta i diu bestieses. <span class="ref">NB 2.1 · NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Regressió polinòmica (<code>PolynomialFeatures</code>)</span><span class="desc">Fabricar columnes noves (x², x³…) perquè el mateix model lineal dibuixi corbes. El grau és un hiperparàmetre. <span class="ref">NB 2.3</span></span></li>
+  <li><span class="term">Regressió lineal</span><span class="desc">Multiplicar cada entrada per un número i sumar-ho tot. No sap fer corbes ni condicions. <span class="ref">diapos UT2</span></span></li>
+  <li><span class="term">Regressió lineal simple</span><span class="desc">Una entrada i una recta, definida pel pendent (quant puja per cada unitat) i l'ordenada a l'origen (el punt de partida). <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">Regressió lineal múltiple</span><span class="desc">Diverses entrades, amb un coeficient per a cada variable. Ja no es pot dibuixar. <span class="ref">NB 2.2</span></span></li>
+  <li><span class="term">Llegir els coeficients</span><span class="desc">«Per cada mil·límetre d'aleta, uns 50 grams més.» Amb diverses variables s'hi afegeix «si la resta no canvien», i no es poden comparar entre si. <span class="ref">NB 1.2 · NB 2.1 · NB 2.2</span></span></li>
+  <li><span class="term">Afegir variables</span><span class="desc">Només ajuda si aporta informació nova que el model pugui aprofitar. Té costos: cal tenir-les totes per predir, el model s'explica pitjor i sobreajusta més fàcilment. <span class="ref">NB 2.2 · NB 2.3</span></span></li>
+  <li><span class="term">Extrapolació</span><span class="desc">Predir fora del rang de les dades d'entrenament, on el model continua la recta i diu bestieses. <span class="ref">NB 2.1 · NB 2.2</span></span></li>
+  <li><span class="term">Regressió polinòmica (<code>PolynomialFeatures</code>)</span><span class="desc">Fabricar columnes noves (x², x³…) perquè el mateix model lineal dibuixi corbes. El grau és un hiperparàmetre. <span class="ref">NB 2.3</span></span></li>
 </ul>
 <div class="sub">Vist de passada</div>
 <ul class="c minor">
-  <li><span class="box"></span><span class="term">Què minimitza <code>fit()</code></span><span class="desc">Els errors al quadrat, no el MAE. Per això la seva recta no és idèntica a la que trobem provant pendents a mà. <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Ordenada sense sentit físic</span><span class="desc">Un pingüí d'aleta zero pesaria −6 kg: és un ajust matemàtic, no una afirmació sobre pingüins. <span class="ref">NB 1.2 · NB 2.1 · NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Variables redundants</span><span class="desc">Quatre mides del districte que diuen el mateix es reparteixen el pes i donen coeficients absurds. <span class="ref">NB 2.2</span><span class="ut">→ UT3</span></span></li>
-  <li><span class="box"></span><span class="term">Variables que només funcionen juntes</span><span class="desc">La latitud i la longitud: soles diuen poc; juntes diuen on és el districte. <span class="ref">NB 2.2</span></span></li>
-  <li><span class="box"></span><span class="term">Interaccions</span><span class="desc">Amb diverses entrades, <code>PolynomialFeatures</code> també les multiplica entre elles (<code>tmax × cap_de_setmana</code>). <span class="ref">NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">Fabricar variables a mà</span><span class="desc">Donar al model la informació ja preparada, com la distància a la ciutat més propera. <span class="ref">NB 2.2 · NB 2.3</span><span class="ut">→ UT3</span></span></li>
-  <li><span class="box"></span><span class="term">Escalat</span><span class="desc">Dividir la temperatura entre 30 perquè les potències no es disparin, i posar les variables a la mateixa escala per poder comparar coeficients. <span class="ref">NB 1.2 · NB 2.2 · NB 2.3</span><span class="ut">→ UT3</span></span></li>
-  <li><span class="box"></span><span class="term">Interpretabilitat</span><span class="desc">La regressió lineal «s'explica sola»; els models més potents, no. <span class="ref">NB 2.1</span><span class="ut">→ UT5</span></span></li>
-  <li><span class="box"></span><span class="term">Importància de variables</span><span class="desc">Com mesurar quina variable pesa més de veritat. <span class="ref">NB 2.2</span><span class="ut">→ UT5</span></span></li>
+  <li><span class="term">Què minimitza <code>fit()</code></span><span class="desc">Els errors al quadrat, no el MAE. Per això la seva recta no és idèntica a la que trobem provant pendents a mà. <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">Ordenada sense sentit físic</span><span class="desc">Un pingüí d'aleta zero pesaria −6 kg: és un ajust matemàtic, no una afirmació sobre pingüins. <span class="ref">NB 1.2 · NB 2.1 · NB 2.2</span></span></li>
+  <li><span class="term">Variables redundants</span><span class="desc">Quatre mides del districte que diuen el mateix es reparteixen el pes i donen coeficients absurds. <span class="ref">NB 2.2</span><span class="ut">→ UT3</span></span></li>
+  <li><span class="term">Variables que només funcionen juntes</span><span class="desc">La latitud i la longitud: soles diuen poc; juntes diuen on és el districte. <span class="ref">NB 2.2</span></span></li>
+  <li><span class="term">Interaccions</span><span class="desc">Amb diverses entrades, <code>PolynomialFeatures</code> també les multiplica entre elles (<code>tmax × cap_de_setmana</code>). <span class="ref">NB 2.3</span></span></li>
+  <li><span class="term">Fabricar variables a mà</span><span class="desc">Donar al model la informació ja preparada, com la distància a la ciutat més propera. <span class="ref">NB 2.2 · NB 2.3</span><span class="ut">→ UT3</span></span></li>
+  <li><span class="term">Escalat</span><span class="desc">Dividir la temperatura entre 30 perquè les potències no es disparin, i posar les variables a la mateixa escala per poder comparar coeficients. <span class="ref">NB 1.2 · NB 2.2 · NB 2.3</span><span class="ut">→ UT3</span></span></li>
+  <li><span class="term">Interpretabilitat</span><span class="desc">La regressió lineal «s'explica sola»; els models més potents, no. <span class="ref">NB 2.1</span><span class="ut">→ UT5</span></span></li>
+  <li><span class="term">Importància de variables</span><span class="desc">Com mesurar quina variable pesa més de veritat. <span class="ref">NB 2.2</span><span class="ut">→ UT5</span></span></li>
 </ul>
 
 <!-- ============================================================ -->
 <h2><span class="n">6</span>Mètriques de regressió</h2>
 <ul class="c main">
-  <li><span class="box"></span><span class="term">MAE</span><span class="desc">De mitjana, quant m'equivoco, en les unitats de la variable. Es pot explicar a qualsevol. <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">RMSE</span><span class="desc">Eleva els errors al quadrat abans de fer la mitjana i castiga els grans. Sempre surt igual o més gran que el MAE. <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Desviació percentual (MAPE)</span><span class="desc">L'error mitjà en percentatge, sense unitats. Es torna boja quan els valors reals són propers a zero. <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">R2</span><span class="desc">La part de l'error de «dir sempre la mitjana» que ens estalviem. 1 és perfecte, 0 és com dir la mitjana i un valor negatiu és pitjor. És el que dona <code>score()</code> en regressió. <span class="ref">NB 1.2 · NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Triar la mètrica segons el problema</span><span class="desc">El MAE si tots els errors costen igual; el RMSE si un error gran és molt pitjor que molts de petits (el veterinari). Mirar-ne sempre més d'una. <span class="ref">NB 2.1 · NB 2.3</span></span></li>
+  <li><span class="term">MAE</span><span class="desc">De mitjana, quant m'equivoco, en les unitats de la variable. Es pot explicar a qualsevol. <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">RMSE</span><span class="desc">Eleva els errors al quadrat abans de fer la mitjana i castiga els grans. Sempre surt igual o més gran que el MAE. <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">Desviació percentual (MAPE)</span><span class="desc">L'error mitjà en percentatge, sense unitats. Es torna boja quan els valors reals són propers a zero. <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">R2</span><span class="desc">La part de l'error de «dir sempre la mitjana» que ens estalviem. 1 és perfecte, 0 és com dir la mitjana i un valor negatiu és pitjor. És el que dona <code>score()</code> en regressió. <span class="ref">NB 1.2 · NB 2.1</span></span></li>
+  <li><span class="term">Triar la mètrica segons el problema</span><span class="desc">El MAE si tots els errors costen igual; el RMSE si un error gran és molt pitjor que molts de petits (el veterinari). Mirar-ne sempre més d'una. <span class="ref">NB 2.1 · NB 2.3</span></span></li>
 </ul>
 <div class="sub">Vist de passada</div>
 <ul class="c minor">
-  <li><span class="box"></span><span class="term">Error d'una predicció</span><span class="desc">Predit menys real. El signe diu si el model es passa o es queda curt. <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">Quocient RMSE / MAE</span><span class="desc">Cap a 1,2 o 1,3 és normal; 1,5 o més avisa d'uns quants errors enormes. <span class="ref">NB 2.1</span></span></li>
-  <li><span class="box"></span><span class="term">MAE estable i R2 enfonsat</span><span class="desc">Pocs errors catastròfics gairebé no mouen el MAE, però enfonsen el R2. <span class="ref">NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">Accuracy</span><span class="desc">El percentatge d'encerts, que és el que dona <code>score()</code> en classificació. <span class="ref">NB 1.2</span><span class="ut">→ UT4</span></span></li>
+  <li><span class="term">Error d'una predicció</span><span class="desc">Predit menys real. El signe diu si el model es passa o es queda curt. <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">Quocient RMSE / MAE</span><span class="desc">Cap a 1,2 o 1,3 és normal; 1,5 o més avisa d'uns quants errors enormes. <span class="ref">NB 2.1</span></span></li>
+  <li><span class="term">MAE estable i R2 enfonsat</span><span class="desc">Pocs errors catastròfics gairebé no mouen el MAE, però enfonsen el R2. <span class="ref">NB 2.3</span></span></li>
+  <li><span class="term">Accuracy</span><span class="desc">El percentatge d'encerts, que és el que dona <code>score()</code> en classificació. <span class="ref">NB 1.2</span><span class="ut">→ UT4</span></span></li>
 </ul>
 
 <!-- ============================================================ -->
 <h2><span class="n">7</span>Sobreajust</h2>
 <ul class="c main">
-  <li><span class="box"></span><span class="term">Infraajust (<i>underfitting</i>)</span><span class="desc">El model és massa simple per a la forma de les dades i s'equivoca molt fins i tot amb l'entrenament. <span class="ref">NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">Sobreajust (<i>overfitting</i>)</span><span class="desc">El model memoritza l'entrenament, soroll inclòs, i falla amb dades noves. <span class="ref">NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">Error d'entrenament contra error de validació</span><span class="desc">La distància entre tots dos és el senyal d'alarma. L'error d'entrenament sempre prefereix el model més complex, i per això no serveix per triar. <span class="ref">NB 2.2 · NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">Complexitat del model i quantitat de dades</span><span class="desc">El sobreajust depèn de la relació entre totes dues. Es combat simplificant el model o aconseguint més dades. <span class="ref">NB 2.3</span></span></li>
+  <li><span class="term">Infraajust (<i>underfitting</i>)</span><span class="desc">El model és massa simple per a la forma de les dades i s'equivoca molt fins i tot amb l'entrenament. <span class="ref">NB 2.3</span></span></li>
+  <li><span class="term">Sobreajust (<i>overfitting</i>)</span><span class="desc">El model memoritza l'entrenament, soroll inclòs, i falla amb dades noves. <span class="ref">NB 2.3</span></span></li>
+  <li><span class="term">Error d'entrenament contra error de validació</span><span class="desc">La distància entre tots dos és el senyal d'alarma. L'error d'entrenament sempre prefereix el model més complex, i per això no serveix per triar. <span class="ref">NB 2.2 · NB 2.3</span></span></li>
+  <li><span class="term">Complexitat del model i quantitat de dades</span><span class="desc">El sobreajust depèn de la relació entre totes dues. Es combat simplificant el model o aconseguint més dades. <span class="ref">NB 2.3</span></span></li>
 </ul>
 <div class="sub">Vist de passada</div>
 <ul class="c minor">
-  <li><span class="box"></span><span class="term">On comença el sobreajust</span><span class="desc">Als llocs on hi ha poques dades, com els extrems de temperatura. <span class="ref">NB 2.3</span></span></li>
-  <li><span class="box"></span><span class="term">El mateix dilema en altres models</span><span class="desc">La profunditat de l'arbre, la <code>C</code> de les SVM i la cerca d'hiperparàmetres. <span class="ref">NB 2.3</span><span class="ut">→ UT5 · UT6 · UT7</span></span></li>
+  <li><span class="term">On comença el sobreajust</span><span class="desc">Als llocs on hi ha poques dades, com els extrems de temperatura. <span class="ref">NB 2.3</span></span></li>
+  <li><span class="term">El mateix dilema en altres models</span><span class="desc">La profunditat de l'arbre, la <code>C</code> de les SVM i la cerca d'hiperparàmetres. <span class="ref">NB 2.3</span><span class="ut">→ UT5 · UT6 · UT7</span></span></li>
 </ul>
 
 
