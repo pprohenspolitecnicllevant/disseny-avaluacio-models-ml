@@ -35,6 +35,13 @@ Els **exercicis van amb l'enunciat dins el notebook**. Els solucionaris no es
 publiquen aquí: es pengen a **Google Classroom** un cop tancat el termini
 d'entrega de cada activitat.
 
+## Per estudiar
+
+[**Conceptes clau de la UT1 i la UT2**](UT02-Regressio_lineal_polinomica/UT1_UT2_conceptes.pdf)
+(PDF): tots els conceptes que han sortit a les dues unitats, amb els principals
+en negreta, el notebook on apareix cadascun i una casella per marcar els que ja
+saps explicar.
+
 ## Les dades
 
 Hi ha una segona versió dels notebooks de la UT1 amb els **pingüins de
