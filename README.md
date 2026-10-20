@@ -27,6 +27,7 @@ repositori.
 | NB 2.2 — Regressió lineal múltiple i test segellat *(versió California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/california_housing/NB_2_2_regressio_multiple_HOUSING.ipynb) |
 | NB 2.3 — Regressió polinòmica i sobreajust *(versió California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/california_housing/NB_2_3_regressio_polinomica_HOUSING.ipynb) |
 | NB 2.3 — Regressió polinòmica i sobreajust *(versió demanda elèctrica)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/demanda_electrica/NB_2_3_regressio_polinomica_REE.ipynb) |
+| Exercicis de consolidació UT1 i UT2 — Quant tardarà la meva comanda? *(Picaporta)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/consolidacio_picaporta/EX_UT1_UT2_consolidacio_PICAPORTA.ipynb) |
 
 Cada cel·la de codi va acompanyada de la seva explicació: els notebooks fan de
 guió de classe, no només d'exercici.
@@ -40,6 +41,11 @@ d'entrega de cada activitat.
 [**Conceptes clau de la UT1 i la UT2**](UT02-Regressio_lineal_polinomica/UT1_UT2_conceptes.pdf)
 (PDF): tots els conceptes que han sortit a les dues unitats, amb els principals
 en negreta i el notebook on apareix cadascun.
+
+[**Exercicis de consolidació de la UT1 i la UT2**](UT02-Regressio_lineal_polinomica/consolidacio_picaporta/EX_UT1_UT2_consolidacio_PICAPORTA.ipynb):
+una sessió de pràctica autònoma, a prop del format de l'examen. Cal predir quant
+tardarà una comanda de Picaporta, una app de repartiment de Manacor inventada, i
+arribar a un MAE mínim.
 
 ## Les dades
 
@@ -75,7 +81,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 | UT | Títol | Aval | Hores | Estat |
 |---|---|---|---|---|
 | 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET, amb pingüins i amb California Housing |
-| 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3; el 2.2 i el 2.3, també amb California Housing; el 2.3, també amb la demanda elèctrica |
+| 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3; el 2.2 i el 2.3, també amb California Housing; el 2.3, també amb la demanda elèctrica; exercicis de consolidació UT1-UT2 |
 | 3 | Correlacions i preparació de variables | 1a | 15 | pendent |
 | 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |

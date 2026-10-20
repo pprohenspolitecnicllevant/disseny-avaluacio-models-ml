@@ -300,3 +300,36 @@ recta contra el millor polinomi, i sobreajust amb 15 mostres i 6 llavors):
   (0,85 → 0,87 i 0,63 → 0,73).
 - **Bike Sharing** (Washington i Seül): massa soroll, i la tendència entre anys
   trenca una validació per dates.
+
+## Picaporta (exercicis de consolidació UT1-UT2)
+
+`UT02-Regressio_lineal_polinomica/consolidacio_picaporta/repartiments_manacor.csv`
+
+Comandes del 2025 de **Picaporta**, una app de repartiment **inventada** que porta
+menjar del centre de Manacor a Manacor, Son Macià, Porto Cristo, s'Illot i Cala
+Murada. L'objectiu és `minuts_entrega`. Es fa servir als exercicis de consolidació de
+la UT1 i la UT2, una sessió de pràctica autònoma a prop del format de l'examen.
+
+**És l'única excepció al criteri de dades mesurades**, i és deliberada. Per a un
+exercici d'examen calia un fitxer que l'alumnat no hagués vist, que s'entengués sense
+context i on cada concepte de la UT1 i la UT2 tingués el seu lloc. El temps d'entrega
+porta prou soroll perquè cap model no l'endevini: el millor model raonable es queda en
+uns 3,5 minuts d'error. El notebook diu clarament que les dades són simulades.
+
+- **3.000 comandes, 14 columnes.** Errors sembrats a propòsit perquè l'alumnat els
+  trobi: buits, distàncies impossibles i temps d'entrega impossibles. Netejant-los
+  queden 2.895 comandes.
+- **Partició amb `train_test_split`**, com al NB 2.2: un 20% de test i la resta,
+  75% d'entrenament i 25% de validació, tot amb `random_state=42` (1.737, 579 i 579
+  comandes). El temps no hi té cap paper (no hi ha tendència ni estacionalitat que
+  afecti els minuts), així que partir a l'atzar és legítim. Es va provar també de
+  partir per dates, i es va descartar per no despistar l'alumnat.
+- **La neteja és obligatòria i igual per a tothom** (eliminar les files amb buits o
+  valors impossibles), perquè la partició es fa després de netejar. Qui imputés en
+  lloc d'eliminar tindria un altre nombre de files, i amb això una altra partició: el
+  MAE del model lineal passaria de 5,77 a 5,21 minuts i el repte deixaria de ser
+  comparable.
+- **El generador no és aquí.** `generar_repartiments.py` és al repositori de
+  solucions, a la mateixa ruta, perquè conté la fórmula que l'alumnat ha de
+  descobrir. Amb la llavor fixada torna a fer el CSV idèntic, byte a byte.
+
