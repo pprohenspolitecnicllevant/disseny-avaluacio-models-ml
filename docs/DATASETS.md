@@ -93,6 +93,22 @@ criteris avaluables (RA1.b). El directori d'empreses és exactament el contrari:
 tot categòric. Es complementen. A més serveix per al clustering de la **UT8**,
 on agrupar municipis o sectors dona grups que l'alumnat pot interpretar.
 
+**El fitxer.** `UT03-Correlacions_preparacio_variables/ibestat_empreses/empreses_balears.csv`,
+fet amb `generar_empreses_balears.py` (a la mateixa carpeta) a partir del
+**DIRCE-IB de 2024** que l'IBESTAT publica amb llicència CC-BY al seu catàleg de
+dades obertes. 48.326 empreses i cinc columnes de text: `illa`, `municipi` (67),
+`sector` (les 19 seccions de la CNAE-2009 amb nom català), `forma_juridica` (16,
+deduïda de la lletra inicial del NIF) i `assalariats` (5 trams ordenats). El script
+**treu el NIF i la raó social**: no calen, i serveixen per parlar de minimització de
+dades al NB 3.3. El directori només inclou persones jurídiques; els autònoms no hi
+surten. Al NB 3.3, la UT3 en fa servir el tram com a variable ordinal i el municipi
+(de Palma, amb 14.483 empreses a l'entrenament, a Estellencs, amb 8) per agrupar
+categories minoritàries.
+
+L'antiga fitxa de datos.gob.es (`a04003003-empreses-amb-activitat-economica-illes-balears`)
+dona 404 (octubre de 2026); el fitxer es troba cercant «dirceib» al catàleg de dades
+obertes del Govern.
+
 ### Alternativa per a la UT1 — Palmer Penguins
 
 `UT01-Entorn_de_treball_primer_model/penguins/penguins.csv`
@@ -333,3 +349,31 @@ uns 3,5 minuts d'error. El notebook diu clarament que les dades són simulades.
   solucions, a la mateixa ruta, perquè conté la fórmula que l'alumnat ha de
   descobrir. Amb la llavor fixada torna a fer el CSV idèntic, byte a byte.
 
+
+## Ca Nostra Lloguers (exercicis de consolidació UT3)
+
+`UT03-Correlacions_preparacio_variables/consolidacio_lloguers/lloguers_llevant.csv`
+
+1.600 anuncis **inventats** de lloguer de llarga durada a la comarca de Llevant
+(Manacor, Porto Cristo, Cala Millor, Felanitx, Artà, Petra…), per a la sessió de
+consolidació de la UT3. L'objectiu és `lloguer_mensual`. Com Picaporta, és una
+excepció deliberada al criteri de dades mesurades, i el notebook ho diu.
+
+Hi ha sembrat el que la UT3 ha d'ensenyar a trobar:
+
+- **Una parella que diu el mateix**: `peus_quadrats` és la superfície de
+  `metres_quadrats` en una altra unitat (correlació 0,999).
+- **Una correlació espúria**: `id_anunci` té 0,36 de correlació amb el lloguer
+  perquè el portal va exportar primer l'interior i després la costa (−0,73 amb la
+  distància al mar). Amb les categòriques al model, no hi aporta res.
+- **Una corba**: el preu per m² baixa de pressa el primer quilòmetre de costa i
+  després s'aplana, i el logaritme de la distància l'adreça.
+- **Categòriques dels tres tipus**: `estat` (amb ordre), `tipus` i `localitat`
+  (sense ordre; Ariany, Sant Joan i Vilafranca tenen pocs anuncis i s'agrupen).
+- **103 buits** a `any_construccio`, per a un `SimpleImputer`.
+
+Partició com a Picaporta (`random_state=42`, 960 / 320 / 320). El repte es
+calibra amb el solucionari: només numèriques 202 €; amb les categòriques, 130 €
+(bronze < 140); amb el logaritme de la distància, 125 € (plata < 127); amb els metres
+multiplicats pel one-hot, 105 € (or < 110). El generador, `generar_lloguers.py`, és
+al repositori de solucions, a la mateixa ruta, perquè conté la fórmula.

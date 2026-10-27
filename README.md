@@ -28,6 +28,10 @@ repositori.
 | NB 2.3 — Regressió polinòmica i sobreajust *(versió California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/california_housing/NB_2_3_regressio_polinomica_HOUSING.ipynb) |
 | NB 2.3 — Regressió polinòmica i sobreajust *(versió demanda elèctrica)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/demanda_electrica/NB_2_3_regressio_polinomica_REE.ipynb) |
 | Exercicis de consolidació UT1 i UT2 — Quant tardarà la meva comanda? *(Picaporta)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT02-Regressio_lineal_polinomica/consolidacio_picaporta/EX_UT1_UT2_consolidacio_PICAPORTA.ipynb) |
+| NB 3.1 — Correlacions: quines variables van juntes *(California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT03-Correlacions_preparacio_variables/california_housing/NB_3_1_correlacions.ipynb) |
+| NB 3.2 — Preparar les variables per al model *(California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT03-Correlacions_preparacio_variables/california_housing/NB_3_2_preparar_variables.ipynb) |
+| NB 3.3 — Variables categòriques *(empreses de les Balears, IBESTAT)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT03-Correlacions_preparacio_variables/ibestat_empreses/NB_3_3_variables_categoriques.ipynb) |
+| Exercicis de consolidació UT3 — Quant val el lloguer d'aquest pis? *(Ca Nostra Lloguers)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT03-Correlacions_preparacio_variables/consolidacio_lloguers/EX_UT3_consolidacio_LLOGUERS.ipynb) |
 
 Cada cel·la de codi va acompanyada de la seva explicació: els notebooks fan de
 guió de classe, no només d'exercici.
@@ -46,6 +50,10 @@ en negreta i el notebook on apareix cadascun.
 una sessió de pràctica autònoma, a prop del format de l'examen. Cal predir quant
 tardarà una comanda de Picaporta, una app de repartiment de Manacor inventada, i
 arribar a un MAE mínim.
+
+[**Exercicis de consolidació de la UT3**](UT03-Correlacions_preparacio_variables/consolidacio_lloguers/EX_UT3_consolidacio_LLOGUERS.ipynb):
+cal proposar el lloguer de pisos de la comarca de Llevant (Ca Nostra Lloguers,
+inventada), trobar dues trampes al fitxer, preparar les variables i fer-ne la fitxa.
 
 ## Les dades
 
@@ -82,7 +90,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 |---|---|---|---|---|
 | 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET, amb pingüins i amb California Housing |
 | 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3; el 2.2 i el 2.3, també amb California Housing; el 2.3, també amb la demanda elèctrica; exercicis de consolidació UT1-UT2 |
-| 3 | Correlacions i preparació de variables | 1a | 15 | pendent |
+| 3 | [Correlacions i preparació de variables](UT03-Correlacions_preparacio_variables) | 1a | 15 | NB 3.1 i 3.2 amb California Housing, NB 3.3 amb el directori d'empreses de l'IBESTAT; exercicis de consolidació UT3 |
 | 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |
 | 6 | Màquines de suport vectorial (SVM) | 1a | 12 | pendent |
