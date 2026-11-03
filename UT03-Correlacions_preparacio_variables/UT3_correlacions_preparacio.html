@@ -149,6 +149,12 @@
   .flow .stack { display: flex; flex-direction: column; gap: 10px; flex: 1; }
   .flow .stack .box { padding: 12px 20px; font-size: 18px; }
   .flow .t { font-weight: 700; font-size: 20px; }
+  table.rang { border-collapse: collapse; width: 100%; font-size: 16px; text-align: center; }
+  table.rang th { font-size: 12px; font-weight: 700; color: #7C8AA0; padding: 3px 2px 6px; }
+  table.rang td { padding: 5px 2px; border-top: 1px solid #E4EAF2; }
+  table.rang td.d, table.rang td.p { font-weight: 700; }
+  table.rang td.p { color: #1C7293; }
+  table.rang tr.f td { background: #FBEEDD; color: #A65E0D; }
 </style></head><body>
 
 <!-- 1 -->
@@ -281,6 +287,30 @@
 
 <!-- 7 -->
 <section class="slide">
+  <div class="eyebrow">3 &middot; Pearson i Spearman &middot; NB 3.1</div>
+  <h2>Spearman no mira els valors: mira la posició de cada districte</h2>
+  <div class="body">
+  <div class="panels">
+    <div class="panel bad"><div class="ph"><b>1. Els valors</b><span>Pearson 0,01</span></div><svg viewBox="0 0 340 232" width="100%" role="img" aria-label="Persones per llar contra preu en sis districtes: cinc aixafats a l'esquerra i el districte F a 1.200"><line x1="46" y1="186.0" x2="328" y2="186.0" stroke="#DDE4EE"/><text x="39.0" y="190.0" text-anchor="end" font-size="13" fill="#7C8AA0">100</text><line x1="46" y1="116.4" x2="328" y2="116.4" stroke="#DDE4EE"/><text x="39.0" y="120.4" text-anchor="end" font-size="13" fill="#7C8AA0">200</text><line x1="46" y1="46.8" x2="328" y2="46.8" stroke="#DDE4EE"/><text x="39.0" y="50.8" text-anchor="end" font-size="13" fill="#7C8AA0">300</text><line x1="46" y1="186" x2="328" y2="186" stroke="#B9C4D4" stroke-width="1.5"/><text x="46.0" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">0</text><text x="136.2" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">400</text><text x="226.5" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">800</text><text x="316.7" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">1.200</text><text x="187.0" y="224.0" text-anchor="middle" font-size="13" fill="#7C8AA0">persones per llar</text><text x="12.0" y="10.0" text-anchor="end" font-size="13" fill="#7C8AA0" transform="rotate(-90 12 10)">preu (milers de $)</text><line x1="46.0" y1="94.8" x2="328.0" y2="94.3" stroke="#5C6B85" stroke-width="1.5" stroke-dasharray="5 4"/><circle cx="46.3" cy="39.8" r="6" fill="#1C7293"/><circle cx="46.5" cy="67.7" r="6" fill="#1C7293"/><circle cx="46.6" cy="92.0" r="6" fill="#1C7293"/><circle cx="46.7" cy="123.4" r="6" fill="#1C7293"/><circle cx="47.0" cy="151.2" r="6" fill="#1C7293"/><circle cx="316.7" cy="94.1" r="7" fill="#C9700F"/><text x="57.3" y="44.8" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">A</text><text x="57.5" y="72.7" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">B</text><text x="57.6" y="92.0" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">C</text><text x="57.7" y="128.4" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">D</text><text x="58.0" y="156.2" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">E</text><text x="316.7" y="82.1" text-anchor="middle" font-size="14" fill="#C9700F" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">F</text></svg>
+      <div class="err">El districte F, amb <b class="v">1.200</b> persones per llar, aixafa la resta i
+        anul·la la correlació.</div></div>
+    <div class="panel"><div class="ph"><b>2. Ordenar i numerar</b></div>
+      <table class="rang"><tr><th></th><th colspan="2">persones per llar</th><th colspan="2">preu (milers $)</th></tr>
+      <tr><th></th><th>valor</th><th>posició</th><th>valor</th><th>posició</th></tr><tr><td class="d">A</td><td>1,5</td><td class="p">1</td><td>310</td><td class="p">6</td></tr><tr><td class="d">B</td><td>2,0</td><td class="p">2</td><td>270</td><td class="p">5</td></tr><tr><td class="d">C</td><td>2,5</td><td class="p">3</td><td>235</td><td class="p">4</td></tr><tr><td class="d">D</td><td>3,0</td><td class="p">4</td><td>190</td><td class="p">2</td></tr><tr><td class="d">E</td><td>4,5</td><td class="p">5</td><td>150</td><td class="p">1</td></tr><tr class="f"><td class="d">F</td><td>1.200</td><td class="p">6</td><td>232</td><td class="p">3</td></tr></table>
+      <div class="err" style="margin-top:12px">Cada columna s'ordena per separat. F és el <b>6è</b> de la fila, tant si
+        en té 5 com si en té 1.200.</div></div>
+    <div class="panel"><div class="ph"><b>3. Les posicions</b><span>Spearman &minus;0,83</span></div><svg viewBox="0 0 340 232" width="100%" role="img" aria-label="Posicions de persones per llar contra posicions del preu en els mateixos sis districtes"><line x1="46" y1="174.0" x2="328" y2="174.0" stroke="#DDE4EE"/><text x="39.0" y="178.0" text-anchor="end" font-size="13" fill="#7C8AA0">1</text><line x1="46" y1="144.0" x2="328" y2="144.0" stroke="#DDE4EE"/><text x="39.0" y="148.0" text-anchor="end" font-size="13" fill="#7C8AA0">2</text><line x1="46" y1="114.0" x2="328" y2="114.0" stroke="#DDE4EE"/><text x="39.0" y="118.0" text-anchor="end" font-size="13" fill="#7C8AA0">3</text><line x1="46" y1="84.0" x2="328" y2="84.0" stroke="#DDE4EE"/><text x="39.0" y="88.0" text-anchor="end" font-size="13" fill="#7C8AA0">4</text><line x1="46" y1="54.0" x2="328" y2="54.0" stroke="#DDE4EE"/><text x="39.0" y="58.0" text-anchor="end" font-size="13" fill="#7C8AA0">5</text><line x1="46" y1="24.0" x2="328" y2="24.0" stroke="#DDE4EE"/><text x="39.0" y="28.0" text-anchor="end" font-size="13" fill="#7C8AA0">6</text><line x1="46" y1="186" x2="328" y2="186" stroke="#B9C4D4" stroke-width="1.5"/><text x="65.4" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">1</text><text x="114.1" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">2</text><text x="162.7" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">3</text><text x="211.3" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">4</text><text x="259.9" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">5</text><text x="308.6" y="204.0" text-anchor="middle" font-size="13" fill="#7C8AA0">6</text><text x="187.0" y="224.0" text-anchor="middle" font-size="13" fill="#7C8AA0">posició de persones per llar</text><text x="12.0" y="10.0" text-anchor="end" font-size="13" fill="#7C8AA0" transform="rotate(-90 12 10)">posició del preu</text><line x1="46.0" y1="26.9" x2="328.0" y2="171.1" stroke="#5C6B85" stroke-width="1.5" stroke-dasharray="5 4"/><circle cx="65.4" cy="24.0" r="6" fill="#1C7293"/><circle cx="114.1" cy="54.0" r="6" fill="#1C7293"/><circle cx="162.7" cy="84.0" r="6" fill="#1C7293"/><circle cx="211.3" cy="144.0" r="6" fill="#1C7293"/><circle cx="259.9" cy="174.0" r="6" fill="#1C7293"/><circle cx="308.6" cy="114.0" r="7" fill="#C9700F"/><text x="75.4" y="17.0" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">A</text><text x="124.1" y="47.0" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">B</text><text x="172.7" y="77.0" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">C</text><text x="221.3" y="137.0" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">D</text><text x="269.9" y="167.0" text-anchor="start" font-size="14" fill="#17233D" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">E</text><text x="297.6" y="108.0" text-anchor="end" font-size="14" fill="#C9700F" font-weight="700" paint-order="stroke" stroke="#F7F9FC" stroke-width="3">F</text></svg>
+      <div class="err">Es calcula <b>Pearson sobre les posicions</b>. Això és Spearman, i ara es
+        veu la relació: més gent per llar, més barat.</div></div>
+  </div>
+  <p style="margin-top:16px">Si F tingués <b>5</b>, <b>12</b> o <b>1.200</b> persones per llar, Pearson
+    donaria <b>&minus;0,71</b>, <b>&minus;0,25</b> o <b>0,01</b>. Spearman dona <b>&minus;0,83</b> tots tres cops.
+    <span class="muted">Exemple amb sis districtes inventats.</span></p>
+  </div>
+  <div class="num">7</div>
+</section>
+
+<section class="slide">
   <div class="eyebrow">4 &middot; Correlació no és causa &middot; NB 3.1</div>
   <h2>Que vagin juntes no vol dir que l'una causi l'altra</h2>
   <div class="body">
@@ -299,7 +329,7 @@
     Per predir, una correlació així pot servir. Per <b>decidir què canviar</b> al món real,
     no. I a la consolidació de la UT3 hi ha una columna sospitosa: l'hauràs de trobar.</p>
   </div>
-  <div class="num">7</div>
+  <div class="num">8</div>
 </section>
 
 <!-- 8 -->
@@ -326,7 +356,7 @@
     <b>fàbriques</b> que es preparen amb <b>fit()</b> i després transformen les taules amb
     <b>transform()</b>.</p>
   </div>
-  <div class="num">8</div>
+  <div class="num">9</div>
 </section>
 
 <!-- 9 -->
@@ -358,7 +388,7 @@
     </div>
   </div>
   </div>
-  <div class="num">9</div>
+  <div class="num">10</div>
 </section>
 
 <!-- 10 -->
@@ -385,7 +415,7 @@
     Sense ordre (illa, sector, municipi), one-hot. Amb 67 municipis, <b>min_frequency</b>
     agrupa els petits: surten 32 columnes. Al final, 5 columnes de text es converteixen en 55 de números.</p>
   </div>
-  <div class="num">10</div>
+  <div class="num">11</div>
 </section>
 
 <!-- 11 -->
@@ -412,7 +442,7 @@
     </div>
   </div>
   </div>
-  <div class="num">11</div>
+  <div class="num">12</div>
 </section>
 
 <!-- 12 -->
@@ -440,7 +470,7 @@
     </div>
   </div>
   </div>
-  <div class="num">12</div>
+  <div class="num">13</div>
 </section>
 
 <!-- 13 -->
@@ -467,7 +497,7 @@
     Per això una categoria nova que apareix a la validació no trenca res: la fàbrica la
     tracta com a <b>altres</b>.</p>
   </div>
-  <div class="num">13</div>
+  <div class="num">14</div>
 </section>
 
 <!-- 14 -->
@@ -484,7 +514,7 @@
       <b>logaritme</b> per a les cues llargues, <b>escalar</b> les escales.</li>
     <li>Les fàbriques fan <b>fit() només amb l'entrenament</b>.</li>
   </ol>
-  <div class="num">14</div>
+  <div class="num">15</div>
 </section>
 
 </body></html>
