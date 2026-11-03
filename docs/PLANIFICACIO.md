@@ -10,6 +10,7 @@
 > metodologia i fitxes completes de les UT1-UT11.
 > Actualitzat el 2026-09-30: la UT1 es fa amb pingüins, així que el primer contacte
 > amb AEMET (i amb la fuga d'informació) passa al NB 2.2; el test segellat és un 18%.
+> Actualitzat el 2026-11-03: la UT10 afegeix un pas breu de desar i recarregar el model.
 
 ## 1. Dades del mòdul
 
@@ -600,6 +601,7 @@ complementàries i les observacions, tal com són al full.
 - Projecte en parelles amb repartiment de rols registrat, per poder avaluar l'aportació individual.
 - Seguiment amb dues entregues parcials abans de l'entrega final.
 - Obertura conjunta del subconjunt de test a l'aula, comparant l'estimació prèvia amb el resultat.
+- Pas breu: desar el model final amb `joblib`, recarregar-lo i predir una mostra nova (la inferència es treballa a fons a la UT8 del mòdul 5149).
 - Exposició de 10 minuts per parella i torn de preguntes del grup.
 
 **Criteris d'avaluació**
