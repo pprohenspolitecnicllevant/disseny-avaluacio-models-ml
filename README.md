@@ -97,7 +97,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 | 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET, amb pingüins i amb California Housing |
 | 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3; el 2.2 i el 2.3, també amb California Housing; el 2.3, també amb la demanda elèctrica; exercicis de consolidació UT1-UT2 |
 | 3 | [Correlacions i preparació de variables](UT03-Correlacions_preparacio_variables) | 1a | 15 | NB 3.1 i 3.2 amb California Housing, NB 3.3 amb el directori d'empreses de l'IBESTAT; exercicis de consolidació UT3 |
-| 4 | [Classificació: regressió logística i k-NN. Mètriques](UT04-Classificacio_logistica_knn) | 1a | 18 | NB 4.1 i 4.2 amb pingüins, NB 4.3 i 4.4 amb AEMET; falten les diapositives i la consolidació |
+| 4 | [Classificació: regressió logística i k-NN. Mètriques](UT04-Classificacio_logistica_knn) | 1a | 18 | NB 4.1 i 4.2 amb pingüins, NB 4.3 i 4.4 amb AEMET; diapositives; falta la consolidació |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |
 | 6 | Màquines de suport vectorial (SVM) | 1a | 12 | pendent |
 | 7 | Validació creuada, ajust d'hiperparàmetres i robustesa | 2a | 18 | pendent |
