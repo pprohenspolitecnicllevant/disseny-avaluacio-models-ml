@@ -10,6 +10,8 @@
 > metodologia i fitxes completes de les UT1-UT11.
 > Actualitzat el 2026-09-30: la UT1 es fa amb pingüins, així que el primer contacte
 > amb AEMET (i amb la fuga d'informació) passa al NB 2.2; el test segellat és un 18%.
+> Actualitzat el 2026-11-11: la UT4 es fa amb pingüins (NB 4.1 i 4.2) i AEMET
+> (NB 4.3 i el nou NB 4.4, classes desbalancejades), amb pauses «Ara tu» llargues en grup.
 > Actualitzat el 2026-11-03: la UT10 afegeix un pas breu de desar i recarregar el model.
 
 ## 1. Dades del mòdul
@@ -361,10 +363,11 @@ complementàries i les observacions, tal com són al full.
 
 **Activitats d'aula**
 
-- **NB 4.1.** Regressió logística sobre dues variables, amb la frontera de decisió dibuixada.
-- **NB 4.2.** k-NN amb i sense escalat de variables, per veure'n l'efecte sobre el resultat.
-- **NB 4.3.** Taller de mètriques: calcular-les a mà des de la matriu de confusió i comparar amb scikit-learn.
-- Cas de classes desbalancejades: un model trivial encerta el 97% i no serveix. Justificar quina mètrica cal.
+- **NB 4.1.** Regressió logística sobre dues variables dels pingüins, amb la frontera de decisió dibuixada: probabilitat, llindar, coeficients i C.
+- **NB 4.2.** k-NN amb i sense escalat de variables, per veure'n l'efecte sobre el resultat; elecció de k, cost de la predicció i duel amb la regressió logística.
+- **NB 4.3.** Taller de mètriques amb AEMET («demà plou»): calcular-les a mà des de la matriu de confusió i comparar amb scikit-learn; llindar segons el client i corba ROC.
+- **NB 4.4.** Cas de classes desbalancejades («demà plou fort»): un model trivial encerta el 97% i no serveix. Justificar per escrit quina mètrica cal.
+- Exercicis de consolidació autònoma (2 sessions).
 
 **Criteris d'avaluació**
 
@@ -381,7 +384,8 @@ complementàries i les observacions, tal com són al full.
 
 **Observacions**
 
-- Dades: AEMET, «demà plou» (13,47% de dies de pluja, desbalanç real).
+- Dades: pingüins al NB 4.1 i el NB 4.2; AEMET al NB 4.3 i el NB 4.4, amb `pluja_palma.csv` (2015-2023): «demà plou» (13,1% dels dies) i «demà plou fort», més de 10 mm (2,9%).
+- Format: una sessió per notebook, amb tres pauses «Ara tu» de 30-40 minuts en grup que acaben comparant resultats amb un altre grup.
 - El model `Dummy` de la UT1 desmunta l'accuracy amb classes desbalancejades.
 - Transversals: CS1 (debat en grup).
 

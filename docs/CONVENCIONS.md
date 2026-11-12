@@ -55,12 +55,16 @@ Conseqüències pràctiques:
 2. **Què farem avui** i, si escau, les preguntes que s'han de saber respondre en
    acabar.
 3. Desenvolupament: codi + explicació, alternats, amb **pauses «Ara tu»**
-   intercalades (unes tres per notebook). Cada pausa és un exercici curt, lligat
-   a la secció que s'acaba d'explicar, perquè l'alumnat no passi una sessió
-   sencera escoltant abans de posar-hi les mans. Van numerades com a exercicis i
-   formen part de l'entrega.
+   intercalades (unes tres per notebook), lligades a la secció que s'acaba
+   d'explicar, perquè l'alumnat no passi una sessió sencera escoltant abans de
+   posar-hi les mans. Van numerades com a exercicis i formen part de l'entrega.
+   **Des de la UT4, les pauses són llargues** (uns 30-40 minuts) i es fan en grup:
+   cada una planteja un encàrrec amb decisions a prendre i acaba comparant els
+   resultats amb un altre grup. Els blocs d'explicació són curts, d'uns 15-20
+   minuts, i cada notebook ocupa una sessió. A les UT1-UT3 eren exercicis curts.
 4. **Exercicis finals**, els que demanen el notebook sencer. La numeració
-   continua la de les pauses.
+   continua la de les pauses. Des de la UT4, com a molt un, perquè la feina és a
+   les pauses.
 5. **Per al debat de classe**, quan la unitat s'hi presta.
 
 ## 5. Nomenclatura
@@ -79,4 +83,8 @@ Conseqüències pràctiques:
   un punt de comparació.
 - **Mirar casos concrets abans que el número global.** Taula de real contra
   predit abans de la mètrica.
+- **Gràfics d'una o dues línies.** `seaborn` i les utilitats de scikit-learn
+  (`DecisionBoundaryDisplay`, `ConfusionMatrixDisplay`, `RocCurveDisplay`). Si cal
+  una funció llarga de dibuix o de filtratge, va feta i l'alumnat només la fa
+  servir; si les dades s'han de filtrar molt, es prepara un CSV a part.
 - **Dades mesurades, no imputades.** Vegeu [DATASETS.md](DATASETS.md).

@@ -32,6 +32,10 @@ repositori.
 | NB 3.2 — Preparar les variables per al model *(California Housing)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT03-Correlacions_preparacio_variables/california_housing/NB_3_2_preparar_variables.ipynb) |
 | NB 3.3 — Variables categòriques *(empreses de les Balears, IBESTAT)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT03-Correlacions_preparacio_variables/ibestat_empreses/NB_3_3_variables_categoriques.ipynb) |
 | Exercicis de consolidació UT3 — Quant val el lloguer d'aquest pis? *(Ca Nostra Lloguers)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT03-Correlacions_preparacio_variables/consolidacio_lloguers/EX_UT3_consolidacio_LLOGUERS.ipynb) |
+| NB 4.1 — Regressió logística: el primer classificador *(pingüins)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT04-Classificacio_logistica_knn/penguins/NB_4_1_regressio_logistica.ipynb) |
+| NB 4.2 — k-NN: digues-me amb qui vas *(pingüins)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT04-Classificacio_logistica_knn/penguins/NB_4_2_knn.ipynb) |
+| NB 4.3 — Demà plourà? Mesurar els errors d'un classificador *(AEMET)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT04-Classificacio_logistica_knn/aemet/NB_4_3_metriques.ipynb) |
+| NB 4.4 — El model del 97% que no serveix de res *(AEMET)* | [obrir](https://colab.research.google.com/github/pprohenspolitecnicllevant/disseny-avaluacio-models-ml/blob/main/UT04-Classificacio_logistica_knn/aemet/NB_4_4_classes_desbalancejades.ipynb) |
 
 Cada cel·la de codi va acompanyada de la seva explicació: els notebooks fan de
 guió de classe, no només d'exercici.
@@ -81,7 +85,9 @@ Serveix per als dos grans problemes supervisats sobre les mateixes files:
 - **Classificació** — predir `plou_dema`, si demà plou (només un 13,5% dels dies).
 
 Són dades **mesurades**, no imputades ni ponderades, i el desbalanç de classes és
-real. El detall de per què es va triar aquest conjunt, quins altres es fan servir
+real. La UT4 en fa el primer ús amb l'alumnat: després de classificar pingüins al
+NB 4.1 i el NB 4.2, el NB 4.3 i el NB 4.4 prediuen si demà plourà a Palma, i si
+plourà fort, a partir de `pluja_palma.csv`, una versió ja preparada del fitxer. El detall de per què es va triar aquest conjunt, quins altres es fan servir
 i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 
 ## Unitats
@@ -91,7 +97,7 @@ i quins es van descartar és a [docs/DATASETS.md](docs/DATASETS.md).
 | 1 | [Entorn de treball i primer model de principi a fi](UT01-Entorn_de_treball_primer_model) | 1a | 9 | NB 1.1 i 1.2, amb AEMET, amb pingüins i amb California Housing |
 | 2 | [Regressió lineal i polinòmica](UT02-Regressio_lineal_polinomica) | 1a | 18 | NB 2.1, 2.2 i 2.3; el 2.2 i el 2.3, també amb California Housing; el 2.3, també amb la demanda elèctrica; exercicis de consolidació UT1-UT2 |
 | 3 | [Correlacions i preparació de variables](UT03-Correlacions_preparacio_variables) | 1a | 15 | NB 3.1 i 3.2 amb California Housing, NB 3.3 amb el directori d'empreses de l'IBESTAT; exercicis de consolidació UT3 |
-| 4 | Classificació: regressió logística i k-NN. Mètriques | 1a | 18 | pendent |
+| 4 | [Classificació: regressió logística i k-NN. Mètriques](UT04-Classificacio_logistica_knn) | 1a | 18 | NB 4.1 i 4.2 amb pingüins, NB 4.3 i 4.4 amb AEMET; falten les diapositives i la consolidació |
 | 5 | Arbres de decisió i mètodes d'ensemble | 1a | 18 | pendent |
 | 6 | Màquines de suport vectorial (SVM) | 1a | 12 | pendent |
 | 7 | Validació creuada, ajust d'hiperparàmetres i robustesa | 2a | 18 | pendent |

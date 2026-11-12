@@ -82,6 +82,29 @@ per validar**.
   70 °C (arriba a predir més de 3.000 °C al desembre). Amb tots els dies
   d'entrenament, el grau 15 torna a ser raonable.
 
+### Ús a la UT4
+
+- **NB 4.1 i NB 4.2: pingüins.** La frontera de decisió es veu sobre el núvol i
+  l'alumnat ja coneix les dades de la UT1. Sobretot, els pingüins ensenyen l'efecte
+  de l'escalat al k-NN: amb la llargada del bec (mm) i la massa (g), passa d'un
+  79,1% d'encerts a un 95,3%. **Amb AEMET no es veu**: amb `presMin` i `sol`, el
+  k-NN fa un 88,9% sense escalar i un 89,0% escalat.
+- **NB 4.3 i NB 4.4: AEMET**, primer contacte de l'alumnat amb aquest fitxer. Fan
+  servir `UT04-Classificacio_logistica_knn/aemet/pluja_palma.csv`, que genera
+  `preparar_pluja_palma.py` a partir de `meteo_palma.csv`: sense 2024 i 2025 (el
+  test segellat), sense els dies amb alguna mesura absent (3.277 dies) i amb la
+  columna `pluja_forta_dema` (més de 10 mm l'endemà, un 2,9%).
+- **Partició estratificada a l'atzar, no per dates.** La UT4 avalua amb
+  `train_test_split(..., stratify=y, random_state=42)`, perquè la programació
+  demana la partició estratificada i perquè és la que l'alumnat coneix. Dos dies
+  seguits poden caure un a cada costat, i per això els números són una mica
+  optimistes respecte a la partició per dates.
+- **Les xifres que sostenen els notebooks.** «Demà plou»: la regressió logística
+  encerta un 87,2% contra el 87,0% de la referència, amb un recall del 6,5% i una
+  AUC de 0,75. «Demà plou fort»: model i referència encerten el 97,1% i cap dels
+  dos no avisa mai; amb `class_weight="balanced"`, el recall puja al 45,8% amb una
+  precisió del 5,1%.
+
 ### Secundari (UT3 i UT8) — Directori d'empreses amb activitat econòmica (IBESTAT)
 
 Desenes de milers de registres reals amb sector CNAE, municipi, tram
