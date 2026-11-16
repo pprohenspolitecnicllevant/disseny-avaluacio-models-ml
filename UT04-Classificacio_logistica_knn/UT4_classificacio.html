@@ -115,6 +115,10 @@
   table.cm td.ko { background: #FBEEDD; color: #A65E0D; }
   table.cm.sm td { width: 1.7in; height: 0.82in; }
   table.cm.sm td b { font-size: 30px; }
+  table.cm.m3 td { width: 1.35in; height: 0.86in; }
+  table.cm.m3 td b { font-size: 32px; }
+  table.cm.m3 th { font-size: 12px; letter-spacing: 0.8px; }
+  table.cm td.zero { background: #F7F9FC; color: #A8B4C6; }
 
   .big { display: flex; gap: 26px; margin-bottom: 22px; }
   .big > div { flex: 1; background: #F4F7FB; border-radius: 14px; padding: 18px 22px; }
@@ -439,6 +443,34 @@
 
 <!-- 13 -->
 <section class="slide">
+  <div class="eyebrow">4 &middot; Més de dues classes &middot; NB 4.3</div>
+  <h2>Tres classes: la mateixa recepta, mirada classe per classe</h2>
+  <div class="body">
+  <div class="two" style="gap:50px; align-items:flex-start">
+    <div style="flex:0 0 5.9in">
+      <table class="cm m3"><tr><th></th><th>Diu «no plou»</th><th>Diu «plou»</th><th>Diu «pluja forta»</th></tr><tr><th class="r">No plou</th><td class="ok"><b>711</b></td><td class="ko"><b>2</b></td><td class="zero"><b>0</b></td></tr><tr><th class="r">Plou</th><td class="ko"><b>78</b></td><td class="ok"><b>5</b></td><td class="ko"><b>1</b></td></tr><tr><th class="r">Pluja forta</th><td class="ko"><b>23</b></td><td class="zero"><b>0</b></td><td class="ok"><b>0</b></td></tr></table>
+      <p style="margin-top:12px; font-size:17px">Encerta el 87,3%, però la
+        <b>diagonal</b> diu la veritat: dels 23 dies de pluja forta, no n'encerta cap. Cada
+        casella de fora és una confusió concreta.</p>
+    </div>
+    <div>
+      <table class="cmp" style="font-size:17px">
+        <tr><th>Classe</th><th>Precisió</th><th>Recall</th><th>Dies</th></tr>
+        <tr><td class='name'>no plou</td><td>88%</td><td class='name'>100%</td><td>713</td></tr><tr><td class='name'>plou</td><td>71%</td><td class='name' style="color:#A65E0D">6%</td><td>84</td></tr><tr><td class='name'>pluja forta</td><td>0%</td><td class='name' style="color:#A65E0D">0%</td><td>23</td></tr>
+      </table>
+      <p style="margin-top:14px; font-size:17px">La precisió i el recall es calculen <b>per a cada
+        classe</b>, com si cada vegada fos ella la positiva. Ho fa
+        <span class="chip" style="margin:0">classification_report</span>.</p>
+      <p style="margin-top:12px; font-size:17px"><span class="chip" style="margin:0">predict_proba</span>
+        dona una columna per classe, i sumen 1: no plou <b>96%</b> &middot; plou <b>2%</b> &middot; pluja forta <b>2%</b>. És la <b>softmax</b>.</p>
+    </div>
+  </div>
+  </div>
+  <div class="num">13</div>
+</section>
+
+<!-- 14 -->
+<section class="slide">
   <div class="eyebrow">5 &middot; Classes desbalancejades &middot; NB 4.4</div>
   <h2>Pluja forta: el model del 97% que no avisa mai</h2>
   <div class="body">
@@ -468,10 +500,10 @@
     dia de pluja forta pesi com uns 34 dels altres. Menys encerts, però <b>és l'únic
     dels dos que serveix</b>.</p>
   </div>
-  <div class="num">13</div>
+  <div class="num">14</div>
 </section>
 
-<!-- 14 -->
+<!-- 15 -->
 <section class="slide">
   <div class="eyebrow">5 &middot; Quin error és pitjor? &middot; NB 4.4</div>
   <h2>Cap mètrica no diu quin error surt més car</h2>
@@ -489,10 +521,10 @@
   <p class="muted" style="margin-top:16px">Al NB 4.4 ho debatreu amb altres casos: un cribratge
     mèdic, un detector de frau bancari, un filtre de correu brossa&hellip;</p>
   </div>
-  <div class="num">14</div>
+  <div class="num">15</div>
 </section>
 
-<!-- 15 -->
+<!-- 16 -->
 <section class="slide dark">
   <div class="eyebrow">Per endur-se'n</div>
   <h2 style="color:#fff">Abans d'obrir el NB 4.1</h2>
@@ -504,10 +536,10 @@
     <li>El <b>k-NN</b> fa votar els veïns: sempre s'escala, i la k no ha de ser ni massa petita ni
       massa gran.</li>
     <li>Quan una classe és rara, el percentatge d'encerts <b class="amber">enganya</b>: mira la
-      matriu de confusió, la precisió i el recall.</li>
+      matriu de confusió, la precisió i el recall, classe per classe.</li>
     <li>Abans de mesurar, pregunta <b>quin error surt més car</b>.</li>
   </ol>
-  <div class="num">15</div>
+  <div class="num">16</div>
 </section>
 
 </body></html>
