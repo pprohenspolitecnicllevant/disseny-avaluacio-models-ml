@@ -126,7 +126,8 @@ Lectives (UT1-UT10): 165 h. FEMPO: 55 h.
   resultat real.
 - **La fuga d'informació.** Se sembra a la UT2 (NB 2.2: per què predim demà i no avui),
   té el seu cas trampa a la UT7 (validació creuada) i es formalitza a la UT9
-  (ajustar transformacions només amb entrenament, `Pipeline`).
+  (ajustar transformacions només amb entrenament, `Pipeline`). El pipeline ja apareix
+  com a eina a la UT4 (NB 4.2, escalat del k-NN); la UT9 n'explica el perquè.
 - **La desconfiança de les mètriques.** El model de referència (`Dummy*`) apareix
   ja a la UT1 i el desbalanç de classes es tanca a la UT4.
 - **Pont amb el mòdul 5149.** Les xarxes neuronals (MLP inclòs), els
@@ -357,14 +358,14 @@ complementàries i les observacions, tal com són al full.
 
 1. **El problema de classificació** — Diferència amb la regressió. Classes, frontera de decisió i probabilitat de pertinença.
 2. **Regressió logística** — Funció logística, llindar de decisió i lectura dels coeficients. El paràmetre C.
-3. **K veïns més propers (k-NN)** — Distància, elecció de k i efecte de l'escalat de les variables. Cost de la predicció.
+3. **K veïns més propers (k-NN)** — Distància, elecció de k i efecte de l'escalat de les variables, encapsulat amb `make_pipeline`. Cost de la predicció.
 4. **Matriu de confusió i mètriques** — Vertaders i falsos positius i negatius. Accuracy, precision, recall i specificity.
 5. **Corba ROC i classes desbalancejades** — Corba ROC i àrea sota la corba. Per què l'accuracy engana amb classes desbalancejades.
 
 **Activitats d'aula**
 
 - **NB 4.1.** Regressió logística sobre dues variables dels pingüins, amb la frontera de decisió dibuixada: probabilitat, llindar, coeficients i C.
-- **NB 4.2.** k-NN amb i sense escalat de variables, per veure'n l'efecte sobre el resultat; elecció de k, cost de la predicció i duel amb la regressió logística.
+- **NB 4.2.** k-NN amb i sense escalat de variables, per veure'n l'efecte sobre el resultat, i escalat dins d'un pipeline perquè no se n'oblidi cap cas; elecció de k, cost de la predicció i duel amb la regressió logística.
 - **NB 4.3.** Taller de mètriques amb AEMET («demà plou»): calcular-les a mà des de la matriu de confusió i comparar amb scikit-learn; llindar segons el client i corba ROC.
 - **NB 4.4.** Cas de classes desbalancejades («demà plou fort»): un model trivial encerta el 97% i no serveix. Justificar per escrit quina mètrica cal.
 - Exercicis de consolidació autònoma (2 sessions).
